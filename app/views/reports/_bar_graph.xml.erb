@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chart yAxisName="Surveys" caption="<%=h title%>" labelDisplay="ROTATE" baseFontSize="16" >'
+  <%- number_of_labels = 0 -%>
+  <%- dataset.each do |set| -%>
+    <set label='<%= set[:label] %>' value='<%= "%.2f" % set[:value] %>' />
+    <%- number_of_labels += 1 -%>
+  <%- end -%>
+  <styles>
+    <definition>
+	  <% number_of_labels = 1 if number_of_labels.zero? %>
+      <style name='variable_font' type='font' size='<%=(18-2*(Math::log(number_of_labels).to_i)).to_i%>' />
+    </definition>
+    <application>
+      <apply toObject='DATALABELS' styles='variable_font' />
+      <apply toObject='DATAVALUES' styles='variable_font' />
+    </application>
+  </styles>
+</chart>

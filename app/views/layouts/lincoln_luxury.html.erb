@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title><%= print_env %>
+		Auto Survey</title>
+	<%= stylesheet_link_tag 'grid', 'lincoln_luxury', 'stylish-select', 'jquery-ui-1.7.2.custom.css'  %>
+</head>
+<body>
+	<%= grid_on_off %>
+    <div id="container" class="container_16 enclose">
+		<div class="header">&nbsp;</div>
+		
+		<!--<div id="logo">
+			<%= image_tag "lincoln.jpg", :alt => "Lincoln Luxury", :class => "container_16 alpha omega"  %>
+		</div>-->
+				
+		<div class="content body">
+			<div class="enclose vgutter">
+				<h2 class="grid_4">Question <%= (@question_number >= 10) ? @question_number : '0'+@question_number.to_s  %> of <%= LincolnLuxurySurvey::NUMBER_OF_QUESTIONS %></h2>
+				<div class="grid_8" id="progressbar"></div>
+				<h3 class="grid_2">time since you started the survey: </h3>
+				<div class="grid_2 time"><%= print_time %></div>
+			</div>
+        	<%= render :partial=>"layouts/#{controller.sub_layout}" %>
+		</div>
+
+		<div class="footer">&nbsp;</div>
+  	</div>
+	<%= javascript_include_tag :defaults, 'ui.progressbar', 'ui.slider.js', 'jquery.stylish-select' %>
+	<script type="text/javascript">
+		var time_in_seconds = <%= time_in_seconds %>;
+		var seconds = time_in_seconds % 60;
+		var minutes = (time_in_seconds-seconds) / 60;
+		var delay = 1000;
+		<%= "ClockStep();" unless controller.action_name == 'finished' %>
+		<% if controller.action_name == 'finished' %>
+		$("#progressbar").progressbar({ value: 100 });
+		<% else %>
+		$("#progressbar").progressbar({ value: <%= (@question_number-1).to_f*100.0/LincolnLuxurySurvey::NUMBER_OF_QUESTIONS %> });
+		<% end %>
+	</script>
+	<%= yield :javascript %>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-12609997-1");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+</body>
+</html>

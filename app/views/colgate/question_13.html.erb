@@ -1,0 +1,9 @@
+<% content_for :question do %> "Why did you select  <%= @colgate.oral_care_words[2].name %> as your most important?"<% end %>
+	
+<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
+	<div class="vgutter enclose">
+		<div class="grid_1">&nbsp;</div><%=f.text_area :oral_importance_why, :class=>"grid_13" %>
+	</div>
+	
+	<%= render :partial=>'navigation' %>
+<% end %>

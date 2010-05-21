@@ -1,0 +1,53 @@
+<% content_for :question do %><%= title %><% end %>
+<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=> "#{controller_name}_form"} do |f| -%>
+	<div class="vgutter enclose">
+		<div class="grid_2">&nbsp;</div>
+		<div class="grid_3">
+		<% OralCareWord.all.shuffle.each do |oral_care_word| %>
+			<div class="draggable" id="<%= dom_id oral_care_word %>">
+				<%= oral_care_word.name %>
+			</div>
+		<% end %>
+		</div>
+		<div class="grid_6 prefix_3">
+			<div class="droppable luxury_words">
+				<p>1</p>
+			</div>
+		</div>
+			<div class="grid_6 prefix_3">
+				<div class="droppable luxury_words">
+					<p>2</p>
+				</div>
+			</div>
+				<div class="grid_6 prefix_8">
+					<div class="droppable luxury_words">
+						<p>3</p>
+					</div>
+				</div>
+		
+	</div>
+			
+	<%= render :partial=>'navigation' %>
+<% end -%>
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+	function addToForm(event,ui){
+		var substring_index = ui.draggable.attr('id').search(/\d+/);
+		var value = ui.draggable.attr('id').substring(substring_index);
+		$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="oral_care_word_ids_'+ui.draggable.attr('id')+'" name="colgate[oral_care_word_ids][]" value="'+value+'" />');
+		ui.draggable.addClass("selected");
+	}
+	function removeFromForm(event, ui){
+		$('#oral_care_word_ids_'+ui.draggable.attr('id')).remove();
+		ui.draggable.removeClass("selected");
+	}
+	$('.draggable').draggable();
+	$(".droppable").droppable({
+			tolerance: 'touch',
+	     	drop: addToForm,
+			out: removeFromForm
+	    });
+</script>
+<% end %>
+

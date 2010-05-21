@@ -1,0 +1,50 @@
+<h1 class="grid_16 center"><%= @title %></h1>
+
+<div class="grid_6 prefix_5 suffix_5">
+	<div class="alpha grid_4 outline">Number of submitted surveys:</div>
+	<div class="grid_2 outline omega right"><%= @model.count %></div>
+	<div class="alpha grid_4 outline">Number of exhibited surveys:</div>
+	<div class="grid_2 outline omega right"><%= session[:"#{action_name}_ids"].count %></div>
+	<div class="alpha grid_4 outline">Average answer time:</div>
+	<div class="grid_2 outline omega right"><%= seconds_to_time @model.average('time_to_answer') %></div>
+</div>
+<div class="grid_6 prefix_5"><%= link_to "Exhibit all", :controller=>action_name, :action=>'add_all_ids' %>
+	| <%= link_to "Exhibit selected", :action=>action_name %>
+	<!--| <%= link_to "Download data", {:action=>action_name, :format=>'csv'}, :target=>"_blank" %>-->
+</div>
+<% @model::reports.each_with_index do |attributes, question_number|
+	if question_has_graph?(attributes[:fields], @bar_graphs+@pie_graphs) %>
+		<div>
+			<h2 class="grid_16 vgutter question_header"><%= question_number %>. <%= @model::QUESTION[question_number][:title] %></h2>
+			<br class="clear" />
+			<div id="comment_<%= question_number %>" class="vgutter">
+				<%= render :partial=>"comment/show", :locals=>{
+					:comment=>(Comment.find_by_report_and_question(action_name, question_number)||Comment.new), :report=>action_name, :question=>question_number
+				} %>
+			</div>
+			<% attributes[:fields].each_with_index do |attribute,i|
+				if @pie_graphs.include? attribute.to_s %>
+					<div class="grid_8 center <%= i.even? ? "alpha" : "omega" %>">
+						<div id="<%= attribute %>" class="center">&nbsp;</div>
+						<% @model.find(:all, :group=>attribute, :select=>attribute).each do |survey| %>
+							<%= attribute_check_box(action_name, survey, attribute.to_s) %>
+							<%= pie_graph(attribute, url_for(:controller=>action_name)) %>
+						<% end	%>
+					</div>
+				<% elsif @bar_graphs.include? attribute.to_s %>
+					<% attribute = attribute.to_s.gsub('_id','') %>
+					<div id="<%= attribute %>" class="grid_16 vgutter center">&nbsp;</div>
+					<div class="grid_16 center">
+						<% begin %>
+						<% attribute.classify.constantize.all.each do |related_model| 
+							next if related_model.send(@model.to_s.tableize).count == 0 %>
+						    <%= relation_check_box(action_name, related_model, attribute) if related_model.respond_to?(@model.to_s.tableize)  %>
+					  	<% end %>
+						<% rescue; end%>
+						<%= bar_graph(attribute, url_for(:controller=>action_name))%>
+					</div>
+				<% end
+			end %>	
+		</div>
+	<% end unless attributes.blank? || attributes[:fields].blank?
+end %>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <chart caption="<%=h title%>" showPercentValues="1" showPercentInToolTip="0" labelDistance="3" formatNumberScale="0" pieSliceDepth="15" pieRadius="70" startingAngle="45" baseFontSize="16" >
+  <%- number_of_labels=0 -%>
+  <%- dataset.each do |data| -%>
+    <set label="<%=h data[:label]%>" value="<%=h data[:value]%>" isSliced="0" />
+    <%- number_of_labels += 1 -%>
+  <%- end -%>
+  <%- number_of_labels = 1 if number_of_labels==0 -%>
+  <styles>
+    <definition>
+      <style name='small_font' type='font' size='<%= (16-(Math::log(number_of_labels).to_i)).to_i%>' />
+    </definition>
+    <application>
+      <apply toObject='DATALABELS' styles='small_font' />
+    </application>
+  </styles>
+</chart>

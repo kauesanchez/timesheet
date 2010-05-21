@@ -1,0 +1,34 @@
+<% form_for :user, @user, :url=>{:action=>:create} do |f| %>
+
+	<h1 class="grid_16 center">Create a new user</h1>
+	<div class="grid_16">&nbsp;</div>
+
+	<% unless @user.errors.blank? %>
+	<div class="grid_10 prefix_5"><%= f.error_messages %></div>
+	<div class="grid_16">&nbsp;</div>
+	<% end %>
+
+	<div class="grid_3 prefix_5"><%= f.label :login %></div>
+	<%= f.text_field :login, :class=>'grid_3' %><br class="clear"/>
+	<div class="grid_16">&nbsp;</div>
+
+	<div class="grid_3 prefix_5"><%= f.label :password %></div>
+	<%= f.password_field :password, :class=>'grid_3' %><br class="clear"/>
+	<div class="grid_16">&nbsp;</div>
+
+	<div class="grid_3 prefix_5"><%= f.label :password_confirmation %></div>
+	<%= f.password_field :password_confirmation, :class=>'grid_3' %><br class="clear"/>
+	<div class="grid_16">&nbsp;</div>
+
+	<div class="grid_3 prefix_5"><%= f.label :email %></div>
+	<%= f.text_field :email, :class=>'grid_3' %><br class="clear"/>
+	<div class="grid_16">&nbsp;</div>
+
+	<div class="grid_3 prefix_5"><%= f.label :role %></div>
+	<div class="grid_3"><%= f.select :role, [["Client", User::CLIENT],["Admin", User::ADMIN]] %></div><br class="clear"/>
+	<div class="grid_16">&nbsp;</div>
+
+	<div class="grid_3 prefix_5">
+	<%= f.submit "Signup" %>
+	</div>
+<% end %>

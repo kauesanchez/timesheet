@@ -1,0 +1,83 @@
+<% content_for :question do %> <% content_for :question do %><%= title %><% end %><% end %>
+
+<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
+	<div class="vgutter enclose">
+		<div class="grid_12 prefix_1">
+			<%= image_tag "usa_map.png" , :alt => "USA map" , :usemap => '#map' , :style => 'border:none;' %>
+		</div>
+		<br class="clear"/><div class="grid_2">&nbsp;</div>
+		<select class="grid_4 select" id="quality_state_id" name="quality[state_id]">	
+					<option value="">select your state</option>
+			<%= State.options_for_select.collect{|option| "<option value='#{option.last}' id='state_#{option.last}'>#{option.first}</option>" }.join"\n" %>
+		</select>
+		<%# f.select :state_id, State.options_for_select, {:prompt=>"select your state"}, {:class=>'grid_4 select'} %>
+	</div>
+			
+	<%= render :partial=>'navigation' %>
+<% end -%>	
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+var state_ids = new Array();
+<% State.all.each do |state| %>
+	state_ids["<%=state.name.downcase%>"]=<%= state.id %>;
+<% end %>
+	$( '.usa_map area' ).click(function(){
+		state_id = state_ids[$(this).attr('state')];
+		$("#state_"+state_id).attr('selected', true);
+	});
+</script>
+<% end %>
+
+<map name="map" id="map" class="usa_map">
+  <area shape="poly" coords="185,28,200,82,277,91,281,40" href="#" state="montana" />
+  <area shape="poly" coords="213,132,217,89,277,95,276,139" href="#" state="wyoming" />
+  <area shape="poly" coords="113,12,112,48,169,58,177,24" href="#" state="washington" />
+  <area shape="poly" coords="112,50,95,92,160,109,170,61" href="#" state="oregon" />
+  <area shape="poly" coords="179,25, 161,108, 212,119, 215,88, 198,84, 183,30" href="#" state="idaho" />
+  <area shape="poly" coords="282,40,337,41,343,79,280,76" href="#" state="north dakota" />
+  <area shape="poly" coords="338,41,397,52,380,69,376,93,388,106,342,110,345,78" href="#" state="minnesota" />
+  <area shape="poly" coords="383,68,391,66,414,77,424,91,420,115,397,118,390,106,378,91" href="#" state="wisconsin" />
+  <area shape="poly" coords="397,121,420,118,428,163,425,175,415,187,401,173,391,149" href="#" state="illinois" />
+  <area shape="poly" coords="423,130,432,126,449,123,454,159,444,170,428,174,430,162" href="#" state="indiana" />
+  <area shape="poly" coords="432,125,435,118,434,110,431,104,441,76,454,80,453,98,455,102,461,94,467,108,460,122" href="#" state="michigan" />
+  <area shape="poly" coords="451,124,462,122,468,125,473,124,485,116,491,135,487,145,476,161,455,155" href="#" state="ohio" />
+  <area shape="poly" coords="487,115,494,111,498,114,534,105,540,112,540,132,495,142" href="#" state="pennsylvania" />
+  <area shape="poly" coords="499,112,497,105,502,95,520,88,522,81,529,69,541,64,550,108,547,113,533,102" href="#" state="new york" />
+  <area shape="poly" coords="543,65,555,61,558,67,556,90,548,92" href="#" state="vermont" />
+  <area shape="poly" coords="556,61,560,57,571,85,558,90,559,67" href="#" state="new hampshire" />
+  <area shape="poly" coords="562,57,565,51,569,28,576,26,585,45,596,52,580,66,572,82" href="#" state="maine" />
+  <area shape="poly" coords="549,94,571,87,577,97,572,101,567,97,550,100" href="#" state="massachusets" />
+  <area shape="poly" coords="551,102,566,99,569,105,552,115" href="#" state="connecticut" />
+  <area shape="poly" coords="544,115,549,114,549,137,544,138,539,135,543,129" href="#" state="new jersey" />
+  <area shape="poly" coords="476,163,486,175,498,170,520,143,515,139,493,144,493,139" href="#" state="west virginia" />
+  <area shape="poly" coords="471,184,542,173,521,144,498,172,485,176,480,175" href="#" state="virginia" />
+  <area shape="poly" coords="518,139,533,136,530,144,536,161" href="#" state="unk_4" />
+  <area shape="poly" coords="536,136,540,149,546,149" href="#" state="delaware" />
+  <area shape="poly" coords="534,140,536,153,540,154,542,161,543,153,538,149" href="#" state="maryland" />
+  <area shape="poly" coords="488,184,540,175,543,193,530,208,524,209,498,200,476,204,464,204" href="#" state="north carolina" />
+  <area shape="poly" coords="472,209,478,206,497,202,522,211,505,238" href="#" state="south carolina" />
+  <area shape="poly" coords="456,226,452,207,468,209,502,240,494,253,466,256" href="#" state="georgia" />
+  <area shape="poly" coords="439,259,501,256,524,296,525,313,516,318,492,279,476,264,463,271" href="#" state="florida" />
+  <area shape="poly" coords="427,210,450,209,463,256,437,257,443,265,431,267" href="#" state="alabama" />
+  <area shape="poly" coords="409,211,423,210,427,266,417,270,412,262,396,263" href="#" state="mississippi" />  
+  <area shape="poly" coords="368,238,399,238,393,264,410,264,415,277,374,276" href="#" state="louisiana" />
+  <area shape="poly" coords="335,325,332,309,372,278,365,231,308,219,308,195,280,193,276,249,239,248,273,287,280,277,291,277,315,318" href="#" state="texas" />
+  <area shape="poly" coords="279,191,279,187,362,188,364,229,310,217,308,193" href="#" state="oklahoma" />
+  <area shape="poly" coords="364,196,408,194,405,200,409,201,398,236,368,235,365,228" href="#" state="arkansas" />
+  <area shape="poly" coords="409,208,412,193,482,184,459,204" href="#" state="tennessee" />
+  <area shape="poly" coords="364,193,362,166,350,144,388,144,387,149,397,173,412,187,410,192" href="#" state="missouri" />
+  <area shape="poly" coords="415,189,427,176,444,173,458,158,473,162,481,173,477,174,469,184,419,190" href="#" state="kentucky" />
+  <area shape="poly" coords="291,185,293,151,351,153,359,166,361,186" href="#" state="kansas" />
+  <area shape="poly" coords="274,246,223,245,223,253,215,251,224,182,277,188" href="#" state="new mexico" />
+  <area shape="poly" coords="211,250,193,248,157,228,169,208,164,198,174,176,221,183" href="#" state="arizona" />
+  <area shape="poly" coords="155,226,166,207,121,141,131,104,96,95,90,111,105,190,134,222" href="#" state="california" />
+  <area shape="poly" coords="161,195,124,140,133,105,184,116,175,174,171,175" href="#" state="nevada" />
+  <area shape="poly" coords="177,174,186,116,209,121,208,132,227,136,222,181" href="#" state="utah" />
+  <area shape="poly" coords="224,180,229,135,290,141,288,184,274,185" href="#" state="colorado" />
+  <area shape="poly" coords="279,138,278,114,330,116,344,122,348,144,349,150,292,149,291,139" href="#" state="nebraska" />
+  <area shape="poly" coords="351,141,345,121,344,113,387,109,394,119,388,141" href="#" state="iowa" />
+  <area shape="poly" coords="278,111,279,79,341,81,340,115,333,112" href="#" state="south dakota" />
+  <area shape="poly" coords="377,345,369,334,370,329,376,329,398,309,449,317,472,394,490,401,476,399,461,401,439,396,442,404,430,414,431,398,425,398,416,415,419,420,390,448,376,454,373,451,386,446,399,431,402,420,396,423,381,420,376,409,369,411,366,404,363,395,373,381,386,376,385,364,366,368,360,356,379,354,386,351" href="#" state="alaska" />
+  <area shape="poly" coords="399,67,415,57,411,64,417,64,422,68,439,62,447,66,450,70,435,73,423,78,421,83,416,76" href="#" state="noname" />
+</map>

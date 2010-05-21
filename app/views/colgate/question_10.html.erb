@@ -1,0 +1,19 @@
+<% content_for :question do %> <%= title %> <% end %>
+
+<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
+	<div class="vgutter enclose">
+		
+	
+		
+		<% (0...ColgateSurvey::NUMBER_OF_TOOTHPASTE_WORDS).each do |i| %>
+		 
+			<div class="grid_3 prefix_2"><%= image_tag(@colgate.toothpaste_words[i].to_img) %></div>
+					
+			
+			<div class="clear vgutter">&nbsp;</div>
+		<% end %>
+	</div>
+			
+	<%= render :partial=>'navigation' %>
+<% end -%>
+

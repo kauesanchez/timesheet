@@ -1,0 +1,21 @@
+
+<% content_for :question do %><%= title%><% end %>
+
+<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
+	<div class="vgutter enclose">
+		<div class="grid_12 prefix_2">
+			<% i=0 %>
+			<% Sampling.all.each do |sampling| %>
+				<div class="grid_4 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> markable_item" style="text-align:center;">
+					<br />
+					<br />
+					<%= f.radio_button :sampling_id, sampling.id %>
+					<%= f.label "sampling_id_#{sampling.id}", sampling.name %>
+				</div>
+				<% i+=1 %>
+			<% end %>
+		</div>
+	</div>
+	<%= render :partial=>'navigation' %>
+<% end -%>
+

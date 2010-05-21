@@ -1,0 +1,25 @@
+<% form_for :user, :action=> :login do |f| %>
+
+	<h1 class="grid_16 center">Login</h1>
+	<div class="grid_16">&nbsp;</div>
+
+	<% unless flash[:notice].blank? %>
+	<div class="grid_6 prefix_5 center fieldWithErrors"><%= flash[:notice] %></div>
+	<div class="grid_16">&nbsp;</div>
+	<% end %>
+
+	<div class="grid_3 prefix_5"><%= f.label :login %></div>
+	<%= f.text_field :login, :class=>'grid_3' %><br class="clear"/>
+	<div class="grid_16">&nbsp;</div>
+
+	<div class="grid_3 prefix_5"><%= f.label :password %></div>
+	<%= f.password_field :password, :class=>'grid_3' %><br class="clear"/>
+	<div class="grid_16">&nbsp;</div>
+
+	<div class="grid_3 prefix_5">
+	<%= f.submit "Login" %>
+	</div>
+	<div class="grid_3">
+		<%= link_to "forgot password?", forgot_password_path %>
+	</div>
+<% end %>

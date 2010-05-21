@@ -1,0 +1,58 @@
+<% content_for :question do %><%= title %><% end %>
+<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=> "#{controller_name}_form"} do |f| -%>
+	<div class="vgutter enclose">
+		<div class="grid_2">&nbsp;</div>
+		<div class="grid_4 center">
+		<% ToothpasteWord.all.shuffle.each do |toothpaste_word| %>
+			<div class="draggable tooth" id="<%= dom_id toothpaste_word %>">
+				 <%= image_tag toothpaste_word.to_img, :alt=>toothpaste_word.name %>
+				<%toothpaste_word.name %>
+			</div>
+		<% end %>
+		</div>
+		<div class="grid_6 prefix_3">
+ 			<div class="droppable luxury_words" id="0">
+				<p>1</p>
+			</div>
+		</div>
+			<div class="grid_6 prefix_3">
+				<div class="droppable luxury_words" id="1">
+					<p>2</p>
+				</div>
+			</div>
+				<div class="grid_6 prefix_3">
+					<div class="droppable luxury_words" id="2">
+						<p>3</p>
+					</div>
+				</div>
+		
+	</div>
+		
+		
+		
+		
+			
+	<%= render :partial=>'navigation' %>
+<% end -%>
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+	function addToForm(event,ui){
+		var substring_index = ui.draggable.attr('id').search(/\d+/);
+		var value = ui.draggable.attr('id').substring(substring_index);
+		$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids][]" value="'+value+'" />');
+		ui.draggable.addClass("selected");
+	}
+	function removeFromForm(event, ui){
+		$('#toothpaste_word_ids_'+ui.draggable.attr('id')).remove();
+		ui.draggable.removeClass("selected");
+	}
+	$('.draggable').draggable();
+	$(".droppable").droppable({
+			tolerance: 'touch',
+	     	drop: addToForm,
+			out: removeFromForm
+	    });
+</script>
+<% end %>
+

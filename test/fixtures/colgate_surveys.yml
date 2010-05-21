@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  age_group_id: 1
+  gender: MyString
+  state_id: 1
+  income_group_id: 1
+
+two:
+  age_group_id: 1
+  gender: MyString
+  state_id: 1
+  income_group_id: 1

@@ -1,0 +1,122 @@
+* { 
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: helvetica, arial, verdana, sans-serif;
+	color: #FF0000;
+}
+
+h1 {
+	font-size: 28px;
+	margin: 10px 0;
+	font-weight: bold;
+}
+h2 {
+	font-size: 22px;
+	margin: 3px 0;
+	font-weight: normal;
+}
+h3 {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+html { height: 100%; }
+body { height: 100%; background: url('/images/bg_gradient.png') #FFF repeat-x; }
+
+.container_16 {display: table;}
+.container_16 .header, .container_16 .body, .container_16 .footer { background-color: transparent; float: left; }
+.container_16 .header { background: url('/images/bg_container_header.png') no-repeat; width: 985px; height: 30px; }
+.container_16 .body { background: url('/images/bg_container_body.png') repeat-y; width: 975px; padding-left:10px;  }
+.container_16 .footer { background: url('/images/bg_container_footer.png') no-repeat; width: 985px; height: 41px; }
+
+.time { font-size: 24px; }
+.small_text { font-size: 11px; }
+.small_text .grid_12 { 
+	margin-top: 3px;
+	margin-bottom: 4px;
+	border-top:1px solid;
+}
+.center {text-align:center;}
+#container {
+	padding-bottom:16px;
+}
+#logo img {
+	margin-bottom: 16px; 
+}
+
+a>img { border: 0; }
+
+
+.draggable {
+	border: 1px solid #000;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	padding: 3px 6px;
+	z-index: 3;
+	cursor:move;
+	background-color: white;
+}
+
+.care{ 
+	border: 0px solid #000;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	font-weight: bold;
+	color: #000;
+}
+
+.occasion {
+	background-color: yellow;
+}
+
+
+.tooth {
+	border: 0px solid #000;
+
+}
+
+img.draggable {
+	height: 70px;
+}
+
+.droppable {
+	border: 1px solid #000;
+	padding: 3px 8px;
+	margin: 6px 0;
+}
+.luxury_words.droppable{ height: 80px; }
+.brands.droppable{ height: 520px; }
+.draggable.selected { background-color: #eee; }
+.draggable.selected.tooth { background-color: #fff; }
+
+.multiple_markable_item, .markable_item {
+	border: 1px solid #EEE;
+	padding: 4px 0px 4px 0px;
+	border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; 
+}
+
+.multiple_markable_item:hover, .multiple_marked_item, .markable_item:hover , .marked_item { border: 1px solid #333; background: #EEE; padding: 4px 0px 4px 0px;
+	border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px;
+}
+.markable_item input[type="radio"] , .marked_item input[type="radio"] { display: none; }
+.multiple_markable_item input[type="checkbox"] , .multiple_marked_item input[type="checkbox"] { display: none; }
+
+.alt_color {
+	color: #777;
+}
+
+/* deveria do tamanho do grid_8, mas por causa do jquery precisa adicionar padding precisa
+ ter um tamanho um pouco menor */
+#progressbar.grid_8 { width: 462px; float: left; }
+
+.navigation {
+	text-align:center;
+	background-color:#F4D0B8;
+}
+
+.error_messages { color: darkred; }
+.error_messages ul { margin: 2px 16px; }
+
