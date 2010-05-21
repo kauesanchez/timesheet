@@ -1,0 +1,20 @@
+<div class="grid_16"><h1>Thank you for answering our survey!</h1></div>
+<h2 class="grid_12 prefix_2 suffix_2">Below are how many users answered the survey with the same answer as you: </h2>
+<% @reports.each do |report| %>
+	<div class="grid_16">&nbsp;</div>
+	<div class="grid_3 prefix_2"><%= ColgateSurvey.question(report) %>:</div>
+	<div class="grid_2"><%= @colgate.chosen(report) %></div>
+	<div id="<%=report%>" class="grid_4 black-progressbar"></div>
+	<div class="grid_1"><%= @colgate.percent(report).to_i %>%</div>
+	<div class="grid_2"><a name="fb_share" type="button" share_url="http://facebook_share/<%= report %>/<%=@colgate.id %>" href="http://www.facebook.com/sharer.php">share</a></div>
+	<br class="clear vgutter"/>
+<% end %>
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+	<% @reports.each do |report| %>
+		$('#<%=report%>').progressbar({ value: <%= @colgate.percent(report) %> });
+	<% end %>
+</script>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+<% end %>
