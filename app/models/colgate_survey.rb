@@ -8,15 +8,14 @@ class ColgateSurvey < Survey
     QUESTION[6] = {:title=>"Please click on what part of the day you would use each oral care product.  You can click on more than one day part per item if applicable. Please only select the oral care products you use.",:fields=>[:sampling_id]}
     QUESTION[7] = {:title=>"What does a “healthy mouth” mean to you? ",:fields=>[:healthy_mouth]}
     QUESTION[8] = {:title=>"Please drag down 3 of the toothpaste products above that  you use the most in order of importance / usage.",:fields=>[:toothpaste_words]}
-    QUESTION[9] = {:title=>"Why did you select ____________ as your most important?",:fields=>[:toothpaste_word_why]}
+    QUESTION[9] = {:title=>"Why did you select -- as your most important?",:fields=>[:toothpaste_word_why]}
     QUESTION[10] = {:title=>"Of the top three you have selected what would motivate you to change the order of importance? Please rank your top three reasons",:fields=>[]}
-    QUESTION[11] = {:title=>"You chose “other” as your number _____  reason, can you please share what the reason would be? ",:fields=>[:toothpaste_importance_other]}
+    QUESTION[11] = {:title=>"You chose “other” as your number  " " reason, can you please share what the reason would be? ",:fields=>[:toothpaste_importance_other]}
     QUESTION[12] = {:title=>"Please drag and drop the 3 most important oral care needs for you.",:fields=>[:oral_care_words]}
-    QUESTION[13] = {:title=>"Why did you select ____________ as your most important?",:fields=>[:oral_importance_why]}
+    QUESTION[13] = {:title=>"Why did you select -- as your most important?",:fields=>[:oral_importance_why]}
     QUESTION[14] = {:title=>"Of the three important oral care needs you have selected above please click on the one brand below, of the three you chose, that would best satisfy all your 3 of your most important oral care needs",:fields=>[:colgate_rates]}
     QUESTION[15] = {:title=>" Of the three most important oral care needs that you have selected (they would be displayed above), please drag three of the most important occasions / situations (in order of importance)  that you need your top oral care needs to be taken care of:",:fields=>[]}
     QUESTION[16] = {:title=>" If you could only choose one item to take care of your oral care needs, which one would you choose to get your through the day. Please click on one item.",:fields=>[:care_day]}
-    QUESTION[17] = {:title=>"",:fields=>[]}
     
     ATTRIBUTE_QUESTION = {}
     QUESTION.each_with_index {|elements,i| elements[:fields].each{ |element| ATTRIBUTE_QUESTION[element] = i } unless elements.blank? }
@@ -47,6 +46,7 @@ class ColgateSurvey < Survey
         end
       end
     end
+    
     
   def sampling_id
     end  
