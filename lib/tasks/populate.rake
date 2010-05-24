@@ -75,9 +75,106 @@ namespace :populate do
   task :sampling => :environment do
     Sampling.destroy_all
     Sampling.create([
-      "1", "2", "3"
+      "Sampling", "Packaging", "Coupon / discount / promotion","New usage / Claim / application
+      Price", "New oral care solution / flavor / texture","Professional / clinical endorsement","Other"
       ].collect {|sampling| { :name => sampling } })
   end
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+  task :packaging => :environment do
+    Packaging.destroy_all
+    Packaging.create([
+      "1", "2", "3"
+      ].collect {|packaging| { :name => packaging } })
+  end
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+  task :coupon => :environment do
+    Coupon.destroy_all
+    Coupon.create([
+      "1", "2", "3"
+      ].collect {|coupon| { :name => coupon } })
+  end
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+  task :new_usage => :environment do
+    NewUsage.destroy_all
+    NewUsage.create([
+      "1", "2", "3"
+      ].collect {|new_usage| { :name => new_usage } })
+  end
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+   task :new_oral => :environment do
+     NewOral.destroy_all
+     NewOral.create([
+       "1", "2", "3"
+       ].collect {|new_oral| { :name => new_oral } })
+   end
+   desc "Destroy all records from vehicle_region and repopulate it"
+    task :professional => :environment do
+      Professional.destroy_all
+      Professional.create([
+        "1", "2", "3"
+        ].collect {|professional| { :name => professional } })
+    end
+     desc "Destroy all records from vehicle_region and repopulate it"
+      task :other => :environment do
+        Other.destroy_all
+        Other.create([
+          "1", "2", "3"
+          ].collect {|other| { :name => other } })
+      end
+
+  
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+  task :floss => :environment do
+    Floss.destroy_all
+    Floss.create([
+      "Morning", "Day", "Nigth"
+      ].collect {|floss| { :name => floss } })
+  end
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+   task :mouth_wash => :environment do
+     MouthWash.destroy_all
+     MouthWash.create([
+       "Morning", "Day", "Nigth"
+       ].collect {|mouth_wash| { :name => mouth_wash } })
+   end
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+  task :toothpaste => :environment do
+    Toothpaste.destroy_all
+    Toothpaste.create([
+      "Morning", "Day", "Nigth"
+      ].collect {|toothpaste| { :name => toothpaste } })
+  end
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+  task :breath_mint => :environment do
+    BreathMint.destroy_all
+    BreathMint.create([
+      "Morning", "Day", "Nigth"
+      ].collect {|breath_mint| { :name => breath_mint } })
+  end
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+  task :whitening_kit => :environment do
+    WhiteningKit.destroy_all
+    WhiteningKit.create([
+      "Morning", "Day", "Nigth"
+      ].collect {|whitening_kit| { :name => whitening_kit } })
+  end
+  
+  desc "Destroy all records from vehicle_region and repopulate it"
+   task :water_jet => :environment do
+     WaterJet.destroy_all
+     WaterJet.create([
+       "Morning", "Day", "Nigth"
+       ].collect {|water_jet| { :name => water_jet } })
+   end
   
   desc "Destroy all records from colgate_word and repopulate it"
   task :care_day => :environment do
@@ -90,7 +187,8 @@ namespace :populate do
   
   desc "Destroy and populate all tables needed for all surveys"
   task :all => :environment do
-    ["age_group","state","income_group","colgate_word","toothpaste_word","oral_care_word","care_need","sampling","care_day","occasion_word"].each do |task|
+    ["age_group","state","income_group","colgate_word","toothpaste_word","oral_care_word","care_need","sampling","care_day","occasion_word"
+      ].each do |task|
       Rake::Task["populate:#{task}"].execute
     end
   end

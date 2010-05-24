@@ -1,6 +1,5 @@
 class ColgateRate < ActiveRecord::Base
     belongs_to :colgate_survey
-    belongs_to :toothpaste_word
 
     def to_label
       "#{toothpaste_word.to_label}: #{rate}"

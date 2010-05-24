@@ -20,17 +20,17 @@
 			<% end %>
 			</div>
 			<div class="grid_6 prefix_1">
-				<div class="droppable luxury_words">
+				<div class="droppable luxury_words" id="droppable_1">
 					<p>1</p>
 				</div>
 			</div>
 				<div class="grid_6 prefix_1">
-					<div class="droppable luxury_words">
+					<div class="droppable luxury_words" id="droppable_2">
 						<p>2</p>
 					</div>
 				</div>
 					<div class="grid_6 prefix_1">
-						<div class="droppable luxury_words">
+						<div class="droppable luxury_words" id="droppable_3">
 							<p>3</p>
 						</div>
 					</div>
@@ -47,17 +47,21 @@
 			var value = ui.draggable.attr('id').substring(substring_index);
 			$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="occasion_word_ids_'+ui.draggable.attr('id')+'" name="colgate[occasion_word_ids][]" value="'+value+'" />');
 			ui.draggable.addClass("selected");
-		}
-		function removeFromForm(event, ui){
-			$('#occasion_word_ids_'+ui.draggable.attr('id')).remove();
-			ui.draggable.removeClass("selected");
-		}
+      var dropped = $(this);
+      dropped.droppable( "option", "disabled", true );
+      ui.draggable.bind( "drag", function(event, ui) {
+        $(this).removeClass("selected");
+        dropped.droppable( "option", "disabled", false );
+        $('#occasion_word_ids_'+$(this).attr('id')).remove();
+      });
+		};
+		
 		$('.draggable').draggable();
 		$(".droppable").droppable({
 				tolerance: 'touch',
-		     	drop: addToForm,
-				out: removeFromForm
-		    });
+		    drop: addToForm
+		 });
+     
 	</script>
 	<% end %>
 

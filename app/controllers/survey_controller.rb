@@ -132,11 +132,11 @@ class SurveyController < ApplicationController
           session[:"#{controller_name}"].send("#{new_key}=", new_key.pluralize.classify.constantize.find(value)) unless value.blank?
         when /^\w+_ids$/
           new_key = key.sub(/_ids$/,'')
-          begin
+          #begin
             session[:"#{controller_name}"].send("#{new_key.pluralize}=", new_key.classify.constantize.find(value)) unless value.blank?
-          rescue
-            session[:"#{controller_name}"].send("#{new_key.pluralize}=", value)
-          end
+          #rescue
+          #  session[:"#{controller_name}"].send("#{new_key.pluralize}=", value)
+          #end
         else
           session[:"#{controller_name}"][key] = value
         end

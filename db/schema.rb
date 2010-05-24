@@ -9,11 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 16) do
+ActiveRecord::Schema.define(:version => 29) do
 
   create_table "age_groups", :force => true do |t|
     t.integer  "min_age"
     t.integer  "max_age"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "breath_mints", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,11 +46,56 @@ ActiveRecord::Schema.define(:version => 16) do
 
   create_table "colgate_surveys", :force => true do |t|
     t.integer  "age_group_id"
-    t.string   "gender"
+    t.string   "gender",                      :limit => 1
     t.integer  "state_id"
     t.integer  "income_group_id"
+    t.integer  "time_to_answer"
+    t.string   "first_word"
+    t.text     "healthy_mouth"
+    t.string   "toothpaste_word_why"
+    t.string   "toothpaste_importance_other"
+    t.string   "oral_importance_why"
+    t.integer  "sampling_id"
+    t.integer  "care_day_id"
+    t.integer  "packaging_id"
+    t.integer  "coupon_id"
+    t.integer  "new_usage_id"
+    t.integer  "new_oral_id"
+    t.integer  "professional_id"
+    t.integer  "other_id"
+    t.integer  "mouth_wash_id"
+    t.integer  "floss_id"
+    t.integer  "toothpaste_id"
+    t.integer  "breath_mint_id"
+    t.integer  "whitening_kit_id"
+    t.integer  "water_jet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "colgate_surveys_colgate_words", :force => true do |t|
+    t.integer "colgate_survey_id"
+    t.integer "colgate_word_id"
+  end
+
+  create_table "colgate_surveys_occasion_words", :force => true do |t|
+    t.integer "colgate_survey_id"
+    t.integer "occasion_word_id"
+  end
+
+  create_table "colgate_surveys_oral_care_words", :force => true do |t|
+    t.integer "colgate_survey_id"
+    t.integer "oral_care_word_id"
+  end
+
+  create_table "colgate_surveys_samplings", :force => true do |t|
+    t.integer "colgate_survey_id"
+    t.integer "sampling_id"
+  end
+
+  create_table "colgate_surveys_toothpaste_words", :force => true do |t|
+    t.integer "colgate_survey_id"
+    t.integer "toothpaste_word_id"
   end
 
   create_table "colgate_words", :force => true do |t|
@@ -53,9 +104,21 @@ ActiveRecord::Schema.define(:version => 16) do
     t.datetime "updated_at"
   end
 
+  create_table "flosses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "income_groups", :force => true do |t|
     t.integer  "value"
     t.string   "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mouth_washes", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -110,12 +173,30 @@ ActiveRecord::Schema.define(:version => 16) do
     t.datetime "updated_at"
   end
 
+  create_table "toothpastes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "hashed_password"
     t.string   "email"
     t.string   "salt"
     t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "water_jets", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "whitening_kits", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

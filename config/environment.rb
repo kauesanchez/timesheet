@@ -19,7 +19,6 @@ Rails::Initializer.run do |config|
   config.gem "sqlite3-ruby", :lib => "sqlite3"
   config.gem "rspec", :version=>'1.2.9', :lib=>'spec'
   config.gem "rspec-rails", :version=>'1.2.9', :lib=>'spec/rails'
-  config.gem 'subdomain-fu'
   config.gem 'fastercsv'
 
   # Only load the plugins named here, in the order given (default is alphabetical).

@@ -1,6 +1,6 @@
 class ToothpasteWord < ActiveRecord::Base
-  has_many :colgate_rate
-  has_many :colgate_surveys, :through => :colgate_rate
+  has_and_belongs_to_many :colgate_surveys
+ 
   
   def to_img
     name.downcase.gsub(/\s+/,'_')+'.png'

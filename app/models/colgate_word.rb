@@ -1,5 +1,5 @@
 class ColgateWord < ActiveRecord::Base
-   has_many :colgate_surveys
+   has_and_belongs_to_many :colgate_surveys
   
   def to_label
     name

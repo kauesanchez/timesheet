@@ -6,14 +6,61 @@
 	
 		
 		<% (0...ColgateSurvey::NUMBER_OF_TOOTHPASTE_WORDS).each do |i| %>
-		 
-			<div class="grid_3 prefix_2"><%= image_tag(@colgate.toothpaste_words[i].to_img) %></div>
-					
-			
+		 	<div class="grid_4 prefix_6"><%= image_tag(@colgate.toothpaste_words[i].to_img) %></div>
 			<div class="clear vgutter">&nbsp;</div>
 		<% end %>
-	</div>
-			
-	<%= render :partial=>'navigation' %>
-<% end -%>
+		
+		<% content_for :question do %><%= title %><% end %>
+		<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=> "#{controller_name}_form"} do |f| -%>
+			<div class="vgutter enclose">
+				<div class="grid_2">&nbsp;</div>
+				<div class="grid_4">
+				<% Sampling.all.shuffle.each do |sampling| %>
+					<div class="draggable" id="<%= dom_id sampling %>">
+						<%= sampling.name %>
+					</div>
+				<% end %>
+				</div>
+				<div class="grid_6 prefix_3">
+					<div class="droppable luxury_words "id="droppable_1">
+						<p>1</p>
+					</div>
+				</div>
+					<div class="grid_6 prefix_3">
+						<div class="droppable luxury_words"id="droppable_2">
+							<p>2</p>
+						</div>
+					</div>
+						<div class="grid_6 prefix_3">
+							<div class="droppable luxury_words"id="droppable_3">
+								<p>3</p>
+							</div>
+						</div>
 
+				</div>
+			</div>
+
+			<%= render :partial=>'navigation' %>
+		<% end %>
+	
+		<% content_for :javascript do %>
+		<script type="text/javascript">
+			function addToForm(event,ui){
+				var substring_index = ui.draggable.attr('id').search(/\d+/);
+				var value = ui.draggable.attr('id').substring(substring_index);
+				$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="sampling_ids_'+ui.draggable.attr('id')+'" name="colgate[sampling_ids][]" value="'+value+'" />');
+				ui.draggable.addClass("selected");
+			}
+			function removeFromForm(event, ui){
+				$('#sampling_ids_'+ui.draggable.attr('id')).remove();
+				ui.draggable.removeClass("selected");
+			}
+			$('.draggable').draggable();
+			$(".droppable").droppable({
+					tolerance: 'touch',
+			     	drop: addToForm,
+					out: removeFromForm
+			    });
+		</script>
+		<% end %>
+<% end %>	

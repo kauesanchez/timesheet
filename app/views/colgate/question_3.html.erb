@@ -6,7 +6,7 @@
 			<%= image_tag "usa_map.png" , :alt => "USA map" , :usemap => '#map' , :style => 'border:none;' %>
 		</div>
 		<br class="clear"/><div class="grid_2">&nbsp;</div>
-		<select class="grid_4 select" id="quality_state_id" name="quality[state_id]">	
+		<select class="grid_4 select" id="<%=controller_name%>_state_id" name="<%=controller_name%>[state_id]">	
 					<option value="">select your state</option>
 			<%= State.options_for_select.collect{|option| "<option value='#{option.last}' id='state_#{option.last}'>#{option.first}</option>" }.join"\n" %>
 		</select>

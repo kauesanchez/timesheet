@@ -13,12 +13,18 @@ class CreateColgateSurveys < ActiveRecord::Migration
       t.string :oral_importance_why
       t.references :sampling
       t.references :care_day
-      t.integer :packaging
-      t.integer :coupon
-      t.integer :new_usage
-      t.integer :new_oral
-      t.integer :professional
-      t.integer :other
+      t.references :packaging
+      t.references :coupon
+      t.references :new_usage
+      t.references :new_oral
+      t.references :professional
+      t.references :other
+      t.references :mouth_wash
+      t.references :floss
+      t.references :toothpaste
+      t.references :breath_mint
+      t.references :whitening_kit
+      t.references :water_jet
       
 
       t.timestamps
