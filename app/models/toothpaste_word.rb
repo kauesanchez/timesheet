@@ -3,6 +3,16 @@ class ToothpasteWord < ActiveRecord::Base
  
   
   def to_img
+     case name
+      when 'Colgate' then "colgate"
+      when 'AIM' then "aim"
+      when 'Aquafresh' then "aquafresh"
+      when 'Pepsodent' then "pepsodent"
+      when 'Arm & Hammer' then "arm_hammer"
+      when 'Crest' then "crest"
+      when 'Mentadent' then "mentadent"
+      when 'Tom’s' then "tom"
+        
    "tooth_"name.downcase.gsub(/\s+/,'_')+'.png'
   end
   
