@@ -13,8 +13,11 @@ class ToothpasteWord < ActiveRecord::Base
       when 'Mentadent' then "mentadent"
       when 'Tom’s' then "tom"
         
-   "tooth_"name.downcase.gsub(/\s+/,'_')+'.png'
-  end
+      else""
+      end + ".png"
+      end
+    end
+  
   
   def to_label
     name
