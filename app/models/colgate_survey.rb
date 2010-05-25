@@ -85,7 +85,6 @@ class ColgateSurvey < Survey
     validates_presence_of :floss_id
     
     
-    
     validates_presence_of :age_group_id
     validates_presence_of :income_group_id
     validates_presence_of :gender
