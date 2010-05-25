@@ -22,7 +22,7 @@ class ColgateController < SurveyController
        else
          @question_number = ColgateSurvey::NUMBER_OF_QUESTIONS
          @colgate = session[:colgate]
-         #@colgate.time_to_answer = Time.now - session[:start_time].to_i
+         @colgate.time_to_answer = Time.now - session[:start_time].to_i
          @colgate.save
          cookies[:colgate_id] = { 
            :value=>@colgate.id,

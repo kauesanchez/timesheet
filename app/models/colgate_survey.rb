@@ -4,16 +4,16 @@ class ColgateSurvey < Survey
     QUESTION[2] = {:title=>"Pick your gender:",:fields=>[:gender]}
     QUESTION[3] = {:title=>"Where are you right now? ",:fields=>[:state_id]}
     QUESTION[4] = {:title=>"Please tell us your income range: ",:fields=>[:income_group_id]}
-    QUESTION[5] = {:title=>"Please drag down 3 of the oral care products above that  you use the most.",:fields=>[:colgate_words]}
+    QUESTION[5] = {:title=>"Please drag and drop the three oral care products that  you use the most.",:fields=>[:colgate_words]}
     QUESTION[6] = {:title=>"Please click on what part of the day you would use each oral care product.  You can click on more than one day part per item if applicable. Please only select the oral care products you use.",:fields=>[:floss_id,:mouth_wash_id,:toothpaste_id,:breath_mint_id,:whitening_kit_id,:water_jet_id]}
     QUESTION[7] = {:title=>"What does a “healthy mouth” mean to you? ",:fields=>[:healthy_mouth]}
     QUESTION[8] = {:title=>"Please drag down 3 of the toothpaste products above that  you use the most in order of importance / usage.",:fields=>[:toothpaste_words]}
     QUESTION[9] = {:title=>"Why did you select -- as your most important?",:fields=>[:toothpaste_word_why]}
     QUESTION[10] = {:title=>"Of the top three you have selected what would motivate you to change the order of importance? Please rank your top three reasons",:fields=>[:samplings]}
-    QUESTION[11] = {:title=>"You chose “other” as your number  " " reason, can you please share what the reason would be? ",:fields=>[:toothpaste_importance_other]}
+    QUESTION[11] = {:title=>"You chose 3 as your number  " " reason, can you please share what the reason would be? ",:fields=>[:toothpaste_importance_other]}
     QUESTION[12] = {:title=>"Please drag and drop the 3 most important oral care needs for you.",:fields=>[:oral_care_words]}
     QUESTION[13] = {:title=>"Why did you select -- as your most important?",:fields=>[:oral_importance_why]}
-    QUESTION[14] = {:title=>"Of the three important oral care needs you have selected above please click on the one brand below, of the three you chose, that would best satisfy all your 3 of your most important oral care needs",:fields=>[:colgate_word_id]}
+    QUESTION[14] = {:title=>"Of the three important oral care needs you have selected above please click on the one brand below, of the three you chose, that would best satisfy all your 3 of your most important oral care needs",:fields=>[]}
     QUESTION[15] = {:title=>" Of the three most important oral care needs that you have selected (they would be displayed above), please drag three of the most important occasions / situations (in order of importance)  that you need your top oral care needs to be taken care of:",:fields=>[:occasion_words]}
     QUESTION[16] = {:title=>" If you could only choose one item to take care of your oral care needs, which one would you choose to get your through the day. Please click on one item.",:fields=>[:care_day]}
     
@@ -43,7 +43,7 @@ class ColgateSurvey < Survey
     NUMBER_OF_TOOTHPASTE_WORDS = 3
     NUMBER_OF_ORAL_CARE_WORDS = 3
     NUMBER_OF_OCCASION_WORDS = 3
-    NUMBER_OF_SAMPLINGS = 7
+    NUMBER_OF_SAMPLINGS = 3 
     
     
     (0...NUMBER_OF_TOOTHPASTE_WORDS).each {|i| attr_accessor :"colgate_rate_#{i}" }
@@ -72,7 +72,6 @@ class ColgateSurvey < Survey
     belongs_to :sampling
     belongs_to :care_day
     belongs_to :colgate_word
-    belongs_to :sampling
     belongs_to :toothpaste_word
     belongs_to :oral_care_word
     has_many :colgate_rates
@@ -83,6 +82,11 @@ class ColgateSurvey < Survey
     has_and_belongs_to_many :samplings
    
     validates_presence_of :floss_id
+    validates_presence_of :mouth_wash_id
+    validates_presence_of :toothpaste_id
+    validates_presence_of :breath_mint_id
+    validates_presence_of :whitening_kit_id
+    validates_presence_of :water_jet_id
     
     
     validates_presence_of :age_group_id
