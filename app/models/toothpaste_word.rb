@@ -15,8 +15,7 @@ class ToothpasteWord < ActiveRecord::Base
         
       else""
       end + ".png"
-      end
-    end
+  end
   
   
   def to_label

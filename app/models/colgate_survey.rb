@@ -83,10 +83,7 @@ class ColgateSurvey < Survey
     has_and_belongs_to_many :samplings
    
     validates_presence_of :floss_id
-    validates_presence_of :mouth_wash_id
-    validates_presence_of :toothpaste_id
-    validates_presence_of :breath_mint_id
-    validates_presence_of :whitening_kit_id
+    
     
     
     validates_presence_of :age_group_id
