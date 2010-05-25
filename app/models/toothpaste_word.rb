@@ -11,7 +11,7 @@ class ToothpasteWord < ActiveRecord::Base
       when 'Arm & Hammer' then "arm_hammer"
       when 'Crest' then "crest"
       when 'Mentadent' then "mentadent"
-      when 'Tom’s' then "tom"
+      when "Tom’s" then "tom"
         
       else""
       end + ".png"
