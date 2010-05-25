@@ -1,0 +1,5 @@
+*.log
+*._*
+*/._*
+config/database.yml
+

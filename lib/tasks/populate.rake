@@ -187,7 +187,7 @@ namespace :populate do
   
   desc "Destroy and populate all tables needed for all surveys"
   task :all => :environment do
-    ["age_group","state","income_group","colgate_word","toothpaste_word","oral_care_word","care_need","sampling","care_day","occasion_word", "floss"
+    ["age_group","state","income_group","colgate_word","toothpaste_word","oral_care_word","care_need","sampling","care_day","occasion_word", "floss","mouth_wash","toothpaste","breath_mint","whitening_kit","water_jet"
       ].each do |task|
       Rake::Task["populate:#{task}"].execute
     end

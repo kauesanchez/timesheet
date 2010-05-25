@@ -1,6 +1,6 @@
 class CreateColgateSurveysColgateWords < ActiveRecord::Migration
   def self.up
-    create_table :colgate_surveys_colgate_words, :id=>:false do |t|
+    create_table :colgate_surveys_colgate_words, :id=>false do |t|
       t.references :colgate_survey
       t.references :colgate_word
     end

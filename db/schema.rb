@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 29) do
     t.datetime "updated_at"
   end
 
-  create_table "colgate_surveys_colgate_words", :force => true do |t|
+  create_table "colgate_surveys_colgate_words", :id => false, :force => true do |t|
     t.integer "colgate_survey_id"
     t.integer "colgate_word_id"
   end
