@@ -3,7 +3,7 @@ class ToothpasteWord < ActiveRecord::Base
  
   
   def to_img
-    name.downcase.gsub(/\s+/,'_')+'.png'
+   "tooth_"name.downcase.gsub(/\s+/,'_')+'.png'
   end
   
   def to_label
