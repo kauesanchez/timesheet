@@ -1,3 +1,5 @@
 *._*
 */._*
 config/database.yml
+db/schema.rb
+log/*
