@@ -7,18 +7,20 @@
 		 	<div class="grid_4"><%= image_tag(@colgate.toothpaste_words[i].to_img) %></div>
 		<% end %>
 	</div>
+	<br class="clear" />
   	<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=> "#{controller_name}_form"} do |f| -%>
 	<div class="vgutter enclose">
-		<div class="grid_2">&nbsp;</div>
-		<div class="grid_4">
+		<div class="grid_1">&nbsp;</div>
+		<div class="grid_2">
 		<% Sampling.all.shuffle.each do |sampling| %>
-			<div class="draggable" id="<%= dom_id sampling %>" title="<%= sampling.name %>">
+			<div class="draggable" id="<%= dom_id sampling %>" title="<%= sampling.name %>" style="height: 40px;">
 				<%= sampling.name %>
 			</div>
 		<% end %>
-	</div>
-	<div class="vgutter enclose">
 		</div>
+	</div>
+	<br class="clear" />
+	<div class="vgutter enclose">
 		<div class="grid_5">
 			<div class="droppable luxury_words "id="droppable_1">
 				<p>1</p>
