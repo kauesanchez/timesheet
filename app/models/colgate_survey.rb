@@ -7,7 +7,7 @@ class ColgateSurvey < Survey
     QUESTION[5] = {:title=>"Please drag and drop the three oral care products that  you use the most.",:fields=>[:colgate_words]}
     QUESTION[6] = {:title=>"Please click on what part of the day you would use each oral care product.  You can click on more than one day part per item if applicable. Please only select the oral care products you use.",:fields=>[:floss_id,:mouth_wash_id,:toothpaste_id,:breath_mint_id,:whitening_kit_id,:water_jet_id]}
     QUESTION[7] = {:title=>"What does a “healthy mouth” mean to you? ",:fields=>[:healthy_mouth]}
-    QUESTION[8] = {:title=>"Please drag down 3 of the toothpaste products above that  you use the most in order of importance / usage.",:fields=>[:toothpaste_words]}
+    QUESTION[8] = {:title=>"Please drag down 3 of the dental products above that  you use the most in order of importance / usage.",:fields=>[:toothpaste_words]}
     QUESTION[9] = {:title=>"Why did you select -- as your most important?",:fields=>[:toothpaste_word_why]}
     QUESTION[10] = {:title=>"Of the top three you have selected what would motivate you to change the order of importance? Please rank your top three reasons",:fields=>[:samplings]}
     QUESTION[11] = {:title=>"You chose 3 as your number  " " reason, can you please share what the reason would be? ",:fields=>[:toothpaste_importance_other]}
