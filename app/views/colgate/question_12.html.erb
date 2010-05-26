@@ -1,6 +1,7 @@
 <% content_for :question do %><%= title %><% end %>
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=> "#{controller_name}_form"} do |f| -%>
 	<div class="vgutter enclose">
+		<div class="grid_2">&nbsp;</div>
 		<% OralCareWord.all.shuffle.each do |oral_care_word| %>
 			<div class="draggable grid_2" id="<%= dom_id oral_care_word %>" style="height: 60px;">
 				<%= oral_care_word.name %>
@@ -9,17 +10,17 @@
 	</div>
 	<br class="clear" />
 	<div class="vgutter enclose">
-		<div class="grid_6" style="margin-left: 35px;">
+		<div class="grid_5" style="margin-left: 35px;">
 			<div class="droppable luxury_words "id="droppable_1" style="height: 80px;">
 				<p>1</p>
 			</div>
 		</div>
-		<div class="grid_6">
+		<div class="grid_5">
 			<div class="droppable luxury_words"id="droppable_2" style="height: 80px;">
 				<p>2</p>
 			</div>
 		</div>
-		<div class="grid_6">
+		<div class="grid_5">
 			<div class="droppable luxury_words"id="droppable_3" style="height: 80px;">
 				<p>3</p>
 			</div>
