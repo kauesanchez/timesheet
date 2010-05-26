@@ -4,7 +4,7 @@
 	
 	<div class="grid_2	">
 		<% (0...ColgateSurvey::NUMBER_OF_ORAL_CARE_WORDS).each do |i| %>
-	<div class="grid_4 care center "><%= @colgate.oral_care_words[i].name %></div>
+	<div class="grid_4  center "><%= @colgate.oral_care_words[i].name %></div>
 	<%end%>
 	</div>
 
@@ -14,7 +14,7 @@
 			<div class="grid_2">&nbsp;</div>
 			<div class="grid_3">
 			<% OccasionWord.all.shuffle.each do |occasion_word| %>
-				<div class="draggable occasion" id="<%= dom_id occasion_word %>">
+				<div class="draggable" id="<%= dom_id occasion_word %>">
 					<%= occasion_word.name %>
 				</div>
 			<% end %>

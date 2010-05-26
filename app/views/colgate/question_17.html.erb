@@ -1,0 +1,83 @@
+
+<% content_for :question do %><%= title%><% end %>
+
+	<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
+		<div class="vgutter enclose">
+			<div class="grid_12  prefix_2 ">
+				<div class="grid_12 vgutter ">	
+				<div class="grid_2 "><%=@model::LABELS[:floss_care]%> </div>
+				<% i=0 %>
+				<% FlossCare.all.each do |floss_care| %>
+					<div class="grid_2 <%= i%2==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">	
+					<%= f.radio_button :floss_care_id, floss_care.id %>
+					<%= f.label :"floss_care_id_#{floss_care.id}", floss_care.name %>
+				</div>
+				<% i+=1 %>
+				<% end %>		
+			</div>	
+			<br/>
+				<div class="grid_12 vgutter ">
+				<div class="grid_2 "><%=@model::LABELS[:a_mouth_wash]%></div>
+				<% i=0 %>
+				<% AMouthWash.all.each do |a_mouth_wash| %>
+				<div class="grid_2 <%= i%2==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
+
+					<%= f.radio_button :a_mouth_wash_id, a_mouth_wash.id %>
+					<%= f.label :"a_mouth_wash_id_#{a_mouth_wash.id}", a_mouth_wash.name %>
+				</div>
+				<% i+=1 %>
+				<% end %>
+			</div>	
+			<br/>
+			<div class="grid_12 vgutter ">		
+					<div class="grid_2   "><%=@model::LABELS[:a_toothpaste]%></div>
+					<% i=0 %>
+					<% AToothpaste.all.each do |a_toothpaste| %>
+					<div class="grid_2 <%= i%2==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">	
+						<%= f.radio_button :a_toothpaste_id, a_toothpaste.id %>
+						<%= f.label :"a_toothpaste_id_#{a_toothpaste.id}", a_toothpaste.name %>
+					</div>
+					<% i+=1 %>
+					<% end %>
+			</div>	
+			<br/>
+			<div class="grid_12 vgutter ">	
+					<div class="grid_2 "><%=@model::LABELS[:a_breath_mint]%></div>
+					<% i=0 %>
+					<% ABreathMint.all.each do |a_breath_mint| %>
+					<div class="grid_2 <%= i%2==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
+						<%= f.radio_button :a_breath_mint_id, a_breath_mint.id %>
+						<%= f.label :"a_breath_mint_id_#{a_breath_mint.id}", a_breath_mint.name %>
+					</div>
+					<% i+=1 %>
+					<% end %>
+				
+			</div>	
+			<div class="grid_12 vgutter ">	
+					<div class="grid_2 "><%=@model::LABELS[:a_whitening_kit]%></div>
+					<% i=0 %>
+					<% AWhiteningKit.all.each do |a_whitening_kit| %>
+					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
+						<%= f.radio_button :a_whitening_kit_id, a_whitening_kit.id %>
+						<%= f.label :"a_whitening_kit_id_#{a_whitening_kit.id}", a_whitening_kit.name %>
+					</div>
+					<% i+=1 %>
+					<% end %>
+			</div>
+			<div class="grid_12 vgutter ">	
+					<div class="grid_2  "><%=@model::LABELS[:a_water_jet]%></div>
+					<% i=0 %>
+					<% AWaterJet.all.each do |a_water_jet| %>
+					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
+						<%= f.radio_button :a_water_jet_id, a_water_jet.id %>
+						<%= f.label :"a_water_jet_id_#{a_water_jet.id}", a_water_jet.name %>
+					</div>
+					<% i+=1 %>
+					<% end %>
+			</div>
+	
+			</div>		
+		</div>
+		
+	<%= render :partial=>'navigation' %>
+	<% end -%>

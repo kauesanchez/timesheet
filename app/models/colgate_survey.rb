@@ -13,9 +13,14 @@ class ColgateSurvey < Survey
     QUESTION[11] = {:title=>"You chose -- as your number one reason, can you please share why.",:fields=>[:toothpaste_importance_other]}
     QUESTION[12] = {:title=>"Please drag and drop the 3 most important oral care needs for you.",:fields=>[:oral_care_words]}
     QUESTION[13] = {:title=>"Why did you select -- as your most important?",:fields=>[:oral_importance_why]}
-    QUESTION[14] = {:title=>"Of the three important oral care needs you have selected above please click on the one brand below, of the three you chose, that would best satisfy all your 3 of your most important oral care needs",:fields=>[]}
+    QUESTION[14] = {:title=>"Of the three important oral care needs you have selected above please click on the one brand below, of the three you chose, that would best satisfy all your 3 of your most important oral care needs",:fields=>[:colgate_important_id]}
     QUESTION[15] = {:title=>"Of the three most important oral care needs that you have selected, please drag three of the most important occasions / situations (in order of importance) that you need your top oral care needs to be taken care of:",:fields=>[:occasion_words]}
-    QUESTION[16] = {:title=>"If you could only choose one item to take care of your oral care needs, which one would you choose to get your through the day. Please click on one item.",:fields=>[:care_day]}
+    QUESTION[16] = {:title=>"If you could only choose one item to take care of your oral care needs, which one would you choose to get your through the day. Please click on one item.",:fields=>[:care_day_id]}
+    QUESTION[17] = {:title=>"Please select how frequently you purchase only the items you use for your oral care needs. ",:fields=>[:floss_care_id,:a_mouth_wash_id,:a_toothpaste_id,:a_breath_mint_id,:a_whitening_kit_id,:a_water_jet_id]}
+    QUESTION[18] = {:title=>"Please click on the  statement you find the most appealing and cllick on the  statement you find the least appealing:",:fields=>[:most_appealing_id,:last_appealing_id]}
+    QUESTION[19] = {:title=>"Please click on the  statement you find the most appealing and cllick on the  statement you find the least appealing:",:fields=>[:statement_most_appealing_id,:statement_last_appealing_id]}
+    QUESTION[20] = {:title=>"Where do you go the most to purchase your oral care products? Please click on only one.",:fields=>[:purchase_id]}
+    QUESTION[21] = {:title=>"Can you please let us know the name of the store you frequent the most for your oral care purchases?",:fields=>[:store]}
     
     ATTRIBUTE_QUESTION = {}
     QUESTION.each_with_index {|elements,i| elements[:fields].each{ |element| ATTRIBUTE_QUESTION[element] = i } unless elements.blank? }
@@ -24,6 +29,8 @@ class ColgateSurvey < Survey
     EXTRA_GRAPHS = []
     
     
+   
+    
     LABELS={}
      LABELS[:floss]="Floss; strips, tapes, picks"
      LABELS[:mouth_wash]="Mouthwash  / rinse / antiseptics"
@@ -31,9 +38,13 @@ class ColgateSurvey < Survey
      LABELS[:breath_mint]="Breath mints, gums, strips"
      LABELS[:whitening_kit]="Whitening kits / rinses / toothpastes"
      LABELS[:water_jet]="Water jet cleaners (irrigators)like a Waterpik"
-  
-    LABELS2={}
-    LABELS2[:sampling]="Sampling"
+      LABELS[:floss_care]="Floss; strips, tapes, picks"
+      LABELS[:a_mouth_wash]="Mouthwash  / rinse / antiseptics"
+      LABELS[:a_toothpaste]="Toothpaste / tooth brush"
+      LABELS[:a_breath_mint]="Breath mints, gums, strips"
+      LABELS[:a_whitening_kit]="Whitening kits / rinses / toothpastes"
+      LABELS[:a_water_jet]="Water jet cleaners (irrigators)like a Waterpik"
+   
     
       type_validations
     
@@ -44,22 +55,7 @@ class ColgateSurvey < Survey
     NUMBER_OF_ORAL_CARE_WORDS = 3
     NUMBER_OF_OCCASION_WORDS = 3
     NUMBER_OF_SAMPLINGS = 3 
-    
-    
-    (0...NUMBER_OF_TOOTHPASTE_WORDS).each {|i| attr_accessor :"colgate_rate_#{i}" }
 
-    def after_save
-      if colgate_rates.blank?
-        raise "blank colgate word rates"
-      else
-        colgate_rates.each do |colgate_rate|
-          index = toothpaste_words.index colgate_rate.toothpaste_word
-          rate = self["lincoln_rate_#{index}"]
-          colgate_rate.update_attribute(:rate, rate)
-        end
-      end
-    end
-    
     belongs_to :age_group
     belongs_to :floss
     belongs_to :mouth_wash
@@ -67,14 +63,25 @@ class ColgateSurvey < Survey
     belongs_to :breath_mint
     belongs_to :whitening_kit
     belongs_to :water_jet
+    belongs_to :floss_care
+    belongs_to :a_mouth_wash
+    belongs_to :a_toothpaste
+    belongs_to :a_breath_mint
+    belongs_to :a_whitening_kit
+    belongs_to :a_water_jet
     belongs_to :income_group
     belongs_to :state
     belongs_to :sampling
     belongs_to :care_day
+    belongs_to :most_appealing
+    belongs_to :last_appealing
+    belongs_to :statement_most_appealing
+    belongs_to :statement_last_appealing
+    belongs_to :purchase
     belongs_to :colgate_word
     belongs_to :toothpaste_word
     belongs_to :oral_care_word
-    has_many :colgate_rates
+    belongs_to :colgate_important
     has_and_belongs_to_many :colgate_words
     has_and_belongs_to_many :occasion_words
     has_and_belongs_to_many :toothpaste_words
@@ -88,15 +95,31 @@ class ColgateSurvey < Survey
     validates_presence_of :whitening_kit_id
     validates_presence_of :water_jet_id
     
+    # validates_presence_of :floss_care_id
+    #validates_presence_of :a_mouth_wash_id
+    #validates_presence_of :a_toothpaste_id
+    #validates_presence_of :a_breath_mint_id
+    #validates_presence_of :a_whitening_kit_id
+    #validates_presence_of :a_water_jet_id
     
+  
+    validates_presence_of :colgate_important_id
+   
     validates_presence_of :age_group_id
     validates_presence_of :income_group_id
     validates_presence_of :gender
     validates_presence_of :state_id
+    validates_presence_of :care_day_id
+    validates_presence_of :most_appealing_id
+    validates_presence_of :last_appealing_id
+    validates_presence_of :statement_most_appealing_id
+    validates_presence_of :statement_last_appealing_id
+    validates_presence_of :purchase_id
     validates_presence_of :healthy_mouth, :message=>": must write something"
     validates_presence_of :toothpaste_word_why, :message=>": must write something"
     validates_presence_of :toothpaste_importance_other, :message=>": must write something"
     validates_presence_of :oral_importance_why, :message=>": must write something"
+    validates_presence_of :store, :message=>": must write something"
     
     validate :drop_3_colgate_words
     validate :drop_3_toothpaste_words

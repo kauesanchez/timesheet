@@ -25,6 +25,24 @@ class CreateColgateSurveys < ActiveRecord::Migration
       t.references :breath_mint
       t.references :whitening_kit
       t.references :water_jet
+      t.integer :a_mouth_wash_id
+      t.integer :a_floss_id 
+      t.integer :a_toothpaste_id
+      t.integer :a_breath_mint_id
+      t.integer :a_whitening_kit_id
+      t.integer :a_water_jet_id
+      t.references :fights_germs
+      t.references :toothpaste_clinically
+      t.references :clinically_proven
+      t.references :recommend_colgate
+      t.references :purchase
+      t.references :most_appealing
+      t.references :last_appealing
+      t.references :statement_most_appealing
+      t.references :statement_last_appealing
+      t.integer :floss_care_id
+      t.text :store
+      t.integer :colgate_important_id
       
 
       t.timestamps
