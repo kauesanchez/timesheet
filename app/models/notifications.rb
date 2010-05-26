@@ -8,7 +8,5 @@ class Notifications < ActiveRecord::Base
       @from       = 'al@disperseinteractive.com'
       @sent_on    = sent_at
       @headers    = {}
-    end
-  end
-  
+    end  
 end
