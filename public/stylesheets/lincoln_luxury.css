@@ -9,22 +9,22 @@ body {
 }
 
 h1 {
-	font-size: 28px;
+	font-size: 24px;
 	margin: 10px 0;
 	font-weight: bold;
 }
 h2 {
-	font-size: 22px;
+	font-size: 18px;
 	margin: 3px 0;
 	font-weight: normal;
 }
 h3 {
-	font-size: 12px;
+	font-size: 11px;
 	font-weight: normal;
 }
 
 html { height: 100%; }
-body { height: 100%; background: url('/images/bg_gradient.png') #FFF repeat-x; }
+body { font-size: 13px; height: 100%; background: url('/images/bg_gradient.png') #FFF repeat-x; }
 
 .container_16 {display: table;}
 .container_16 .header, .container_16 .body, .container_16 .footer { background-color: transparent; float: left; }
@@ -32,7 +32,7 @@ body { height: 100%; background: url('/images/bg_gradient.png') #FFF repeat-x; }
 .container_16 .body { background: url('/images/bg_container_body.png') repeat-y; width: 975px; padding-left:10px;  }
 .container_16 .footer { background: url('/images/bg_container_footer.png') no-repeat; width: 985px; height: 41px; }
 
-.time { font-size: 24px; }
+.time { font-size: 20px; }
 .small_text { font-size: 11px; }
 .small_text .grid_12 { 
 	margin-top: 3px;

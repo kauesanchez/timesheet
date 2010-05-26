@@ -9,7 +9,6 @@ namespace :populate do
         17..29, 30..38, 39..46, 47..54
       ].collect{ |age_group| {:min_age=>age_group.first, :max_age=>age_group.last} })
   end
- 
 
   desc "Destroy all records from state and repopulate it"
   task :state => :environment do
@@ -140,7 +139,7 @@ namespace :populate do
   task :floss => :environment do
     Floss.destroy_all
     Floss.create([
-      "Morning", "Day", "Nigth"
+      "Morning", "Noon", "Night"
       ].collect {|floss| { :name => floss } })
   end
   
@@ -148,7 +147,7 @@ namespace :populate do
    task :mouth_wash => :environment do
      MouthWash.destroy_all
      MouthWash.create([
-       "Morning", "Day", "Nigth"
+       "Morning", "Noon", "Night"
        ].collect {|mouth_wash| { :name => mouth_wash } })
    end
   
@@ -156,7 +155,7 @@ namespace :populate do
   task :toothpaste => :environment do
     Toothpaste.destroy_all
     Toothpaste.create([
-      "Morning", "Day", "Nigth"
+      "Morning", "Noon", "Night"
       ].collect {|toothpaste| { :name => toothpaste } })
   end
   
@@ -164,7 +163,7 @@ namespace :populate do
   task :breath_mint => :environment do
     BreathMint.destroy_all
     BreathMint.create([
-      "Morning", "Day", "Nigth"
+      "Morning", "Noon", "Night"
       ].collect {|breath_mint| { :name => breath_mint } })
   end
   
@@ -172,7 +171,7 @@ namespace :populate do
   task :whitening_kit => :environment do
     WhiteningKit.destroy_all
     WhiteningKit.create([
-      "Morning", "Day", "Nigth"
+      "Morning", "Noon", "Night"
       ].collect {|whitening_kit| { :name => whitening_kit } })
   end
   
@@ -180,7 +179,7 @@ namespace :populate do
    task :water_jet => :environment do
      WaterJet.destroy_all
      WaterJet.create([
-       "Morning", "Day", "Nigth"
+       "Morning", "Noon", "Night"
        ].collect {|water_jet| { :name => water_jet } })
    end
    

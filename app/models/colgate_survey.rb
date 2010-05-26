@@ -4,25 +4,23 @@ class ColgateSurvey < Survey
     QUESTION[2] = {:title=>"Pick your gender:",:fields=>[:gender]}
     QUESTION[3] = {:title=>"Where are you right now? ",:fields=>[:state_id]}
     QUESTION[4] = {:title=>"Please tell us your income range: ",:fields=>[:income_group_id]}
-    QUESTION[5] = {:title=>"Please drag and drop the three oral care products that  you use the most.",:fields=>[:colgate_words]}
+    QUESTION[5] = {:title=>"Please drag three oral care products and drop them into the boxes on the right in the order that you use the most.",:fields=>[:colgate_words]}
     QUESTION[6] = {:title=>"Please click on what part of the day you would use each oral care product.  You can click on more than one day part per item if applicable. Please only select the oral care products you use.",:fields=>[:floss_id,:mouth_wash_id,:toothpaste_id,:breath_mint_id,:whitening_kit_id,:water_jet_id]}
     QUESTION[7] = {:title=>"What does a “healthy mouth” mean to you? ",:fields=>[:healthy_mouth]}
-    QUESTION[8] = {:title=>"Please drag down 3 of the toothpaste products above that  you use the most in order of importance / usage.",:fields=>[:toothpaste_words]}
+    QUESTION[8] = {:title=>"Please drag down 3 of the dental products above that  you use the most in order of importance / usage.",:fields=>[:toothpaste_words]}
     QUESTION[9] = {:title=>"Why did you select -- as your most important?",:fields=>[:toothpaste_word_why]}
-    QUESTION[10] = {:title=>"Of the top three you have selected what would motivate you to change the order of importance? Please rank your top three reasons",:fields=>[:samplings]}
-    QUESTION[11] = {:title=>"You chose 3 as your number  " " reason, can you please share what the reason would be? ",:fields=>[:toothpaste_importance_other]}
+    QUESTION[10] = {:title=>"Of the top three you have selected what would motivate you to change the order of importance? <br />Please rank your top three reasons.",:fields=>[:samplings]}
+    QUESTION[11] = {:title=>"You chose -- as your number one reason, can you please share why.",:fields=>[:toothpaste_importance_other]}
     QUESTION[12] = {:title=>"Please drag and drop the 3 most important oral care needs for you.",:fields=>[:oral_care_words]}
     QUESTION[13] = {:title=>"Why did you select -- as your most important?",:fields=>[:oral_importance_why]}
     QUESTION[14] = {:title=>"Of the three important oral care needs you have selected above please click on the one brand below, of the three you chose, that would best satisfy all your 3 of your most important oral care needs",:fields=>[:colgate_important_id]}
-    QUESTION[15] = {:title=>" Of the three most important oral care needs that you have selected (they would be displayed above), please drag three of the most important occasions / situations (in order of importance)  that you need your top oral care needs to be taken care of:",:fields=>[:occasion_words]}
-    QUESTION[16] = {:title=>" If you could only choose one item to take care of your oral care needs, which one would you choose to get your through the day. Please click on one item.",:fields=>[:care_day_id]}
+    QUESTION[15] = {:title=>"Of the three most important oral care needs that you have selected, please drag three of the most important occasions / situations (in order of importance) that you need your top oral care needs to be taken care of:",:fields=>[:occasion_words]}
+    QUESTION[16] = {:title=>"If you could only choose one item to take care of your oral care needs, which one would you choose to get your through the day. Please click on one item.",:fields=>[:care_day_id]}
     QUESTION[17] = {:title=>"Please select how frequently you purchase only the items you use for your oral care needs. ",:fields=>[:floss_care_id,:a_mouth_wash_id,:a_toothpaste_id,:a_breath_mint_id,:a_whitening_kit_id,:a_water_jet_id]}
-  
-    QUESTION[20] = {:title=>"Where do you go the most to purchase your oral care products? Please click on only one.",:fields=>[:purchase_id]}
-    QUESTION[21] = {:title=>"Can you please let us know the name of the store you frequent the most for your oral care purchases?",:fields=>[:store]}
     QUESTION[18] = {:title=>"Please click on the  statement you find the most appealing and cllick on the  statement you find the least appealing:",:fields=>[:most_appealing_id,:last_appealing_id]}
     QUESTION[19] = {:title=>"Please click on the  statement you find the most appealing and cllick on the  statement you find the least appealing:",:fields=>[:statement_most_appealing_id,:statement_last_appealing_id]}
-    
+    QUESTION[20] = {:title=>"Where do you go the most to purchase your oral care products? Please click on only one.",:fields=>[:purchase_id]}
+    QUESTION[21] = {:title=>"Can you please let us know the name of the store you frequent the most for your oral care purchases?",:fields=>[:store]}
     
     ATTRIBUTE_QUESTION = {}
     QUESTION.each_with_index {|elements,i| elements[:fields].each{ |element| ATTRIBUTE_QUESTION[element] = i } unless elements.blank? }
