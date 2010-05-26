@@ -33,7 +33,7 @@
 <script type="text/javascript">
 	function addToForm(event,ui){
 		var $curr = $(this).attr( 'id' ).replace( /droppable_/ , '' );
-		var $curr_name = $(this).attr( 'title' );
+		var $curr_name = ui.draggable.attr('title');
 		var substring_index = ui.draggable.attr('id').search(/\d+/);
 		var value = ui.draggable.attr('id').substring(substring_index);
 		$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids][]" value="'+value+'" />');
