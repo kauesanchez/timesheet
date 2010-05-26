@@ -10,7 +10,6 @@
 			<div class="clear vgutter">&nbsp;</div>
 		<% end %>
 		
-		<% content_for :question do %><%= title %><% end %>
 		<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=> "#{controller_name}_form"} do |f| -%>
 			<div class="vgutter enclose">
 				<div class="grid_2">&nbsp;</div>
