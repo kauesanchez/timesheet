@@ -1,4 +1,4 @@
-<% content_for :question do %> <%= title %><% end %>
+<% content_for :question do %> You chose <%=@colgate.sampling_one%> as your number one reason, can you please share why. <% end %>
 	
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
 	<div class="vgutter enclose">

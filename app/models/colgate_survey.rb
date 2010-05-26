@@ -4,7 +4,7 @@ class ColgateSurvey < Survey
     QUESTION[2] = {:title=>"Pick your gender:",:fields=>[:gender]}
     QUESTION[3] = {:title=>"Where are you right now? ",:fields=>[:state_id]}
     QUESTION[4] = {:title=>"Please tell us your income range: ",:fields=>[:income_group_id]}
-    QUESTION[5] = {:title=>"Please drag and drop the three oral care products that  you use the most.",:fields=>[:colgate_words]}
+    QUESTION[5] = {:title=>"Please drag three oral care products and drop them into the boxes on the right in the order that you use the most.",:fields=>[:colgate_words]}
     QUESTION[6] = {:title=>"Please click on what part of the day you would use each oral care product.  You can click on more than one day part per item if applicable. Please only select the oral care products you use.",:fields=>[:floss_id,:mouth_wash_id,:toothpaste_id,:breath_mint_id,:whitening_kit_id,:water_jet_id]}
     QUESTION[7] = {:title=>"What does a “healthy mouth” mean to you? ",:fields=>[:healthy_mouth]}
     QUESTION[8] = {:title=>"Please drag down 3 of the dental products above that  you use the most in order of importance / usage.",:fields=>[:toothpaste_words]}
