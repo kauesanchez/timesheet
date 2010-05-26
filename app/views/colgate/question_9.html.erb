@@ -1,4 +1,4 @@
-<% content_for :question do %> "Why is <%= @colgate.toothpaste_words[0].name %> the most important to you?"<% end %>
+<% content_for :question do %> "Why is <%= @colgate.toothpaste_words_one[0].name %> the most important to you?"<% end %>
 	
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
 	<div class="vgutter enclose">
