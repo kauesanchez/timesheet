@@ -48,6 +48,14 @@ namespace :populate do
   end
   
   desc "Destroy all records from colgate_word and repopulate it"
+  task :colgate_important => :environment do
+    ColgateImportant.destroy_all
+    ColgateImportant.create([
+      "AIM", "Aquafresh", "Pepsodent", "Crest","Arm & Hammer", "Tom’s", "Colgate", "Mentadent"
+      ].collect {|colgate_important| { :name => colgate_important } })
+  end
+  
+  desc "Destroy all records from colgate_word and repopulate it"
   task :oral_care_word => :environment do
     OralCareWord.destroy_all
     OralCareWord.create([
@@ -175,6 +183,56 @@ namespace :populate do
        "Morning", "Day", "Nigth"
        ].collect {|water_jet| { :name => water_jet } })
    end
+   
+   
+   desc "Destroy all records from vehicle_region and repopulate it"
+   task :floss_care => :environment do
+     FlossCare.destroy_all
+     FlossCare.create([
+       "Few times a week", "weekly", "Once a month", "A few times a year", "Hardly ever / never"
+       ].collect {|floss_care| { :name => floss_care } })
+   end
+
+   desc "Destroy all records from vehicle_region and repopulate it"
+    task :a_mouth_wash => :environment do
+      AMouthWash.destroy_all
+      AMouthWash.create([
+        "Few times a week", "weekly", "Once a month", "A few times a year", "Hardly ever / never"      
+          ].collect {|a_mouth_wash| { :name => a_mouth_wash } })
+    end
+
+   desc "Destroy all records from vehicle_region and repopulate it"
+   task :a_toothpaste => :environment do
+     AToothpaste.destroy_all
+     AToothpaste.create([
+        "Few times a week", "weekly", "Once a month", "A few times a year", "Hardly ever / never"
+        ].collect {|a_toothpaste| { :name => a_toothpaste } })
+   end
+
+   desc "Destroy all records from vehicle_region and repopulate it"
+   task :a_breath_mint => :environment do
+     ABreathMint.destroy_all
+     ABreathMint.create([
+      "Few times a week", "weekly", "Once a month", "A few times a year", "Hardly ever / never"
+       ].collect {|a_breath_mint| { :name => a_breath_mint } })
+   end
+
+   desc "Destroy all records from vehicle_region and repopulate it"
+   task :a_whitening_kit => :environment do
+     AWhiteningKit.destroy_all
+     AWhiteningKit.create([
+      "Few times a week", "weekly", "Once a month", "A few times a year", "Hardly ever / never"
+       ].collect {|a_whitening_kit| { :name => a_whitening_kit } })
+   end
+
+   desc "Destroy all records from vehicle_region and repopulate it"
+    task :a_water_jet => :environment do
+      AWaterJet.destroy_all
+      AWaterJet.create([
+        "Few times a week", "weekly", "Once a month", "A few times a year", "Hardly ever / never"
+        ].collect {|a_water_jet| { :name => a_water_jet } })
+    end
+   
   
   desc "Destroy all records from colgate_word and repopulate it"
   task :care_day => :environment do
@@ -184,10 +242,49 @@ namespace :populate do
       ].collect {|care_day| { :name => care_day } })
   end
   
+  desc "Destroy all records from colgate_word and repopulate it"
+  task :most_appealing => :environment do
+    MostAppealing.destroy_all
+    MostAppealing.create([
+      "Shields your whole mouth with a protective germ barrier","Because 80% of germs aren’t on your teeth, they’re on your tongue, cheeks and gums.","The first toothpaste clinically proven to fight germs for 12 hours in your whole mouth","Dual action formula"
+      ].collect {|most_appealing| { :name => most_appealing } })
+  end
+  
+  desc "Destroy all records from colgate_word and repopulate it"
+  task :last_appealing => :environment do
+    LastAppealing.destroy_all
+    LastAppealing.create([
+      "Shields your whole mouth with a protective germ barrier","Because 80% of germs aren’t on your teeth, they’re on your tongue, cheeks and gums.","The first toothpaste clinically proven to fight germs for 12 hours in your whole mouth","Dual action formula"
+      ].collect {|last_appealing| { :name => last_appealing } })
+  end
+  
+  desc "Destroy all records from colgate_word and repopulate it"
+  task :statement_most_appealing_id => :environment do
+    StatementMostAppealing.destroy_all
+    StatementMostAppealing.create([
+     "Fights germs in your whole mouth for a full 12 hours","The only toothpaste clinically proven to fight  germs in your whole mouth","Now, clinically proven to fight germs everywhere in your mouth for 12 hours","Dentists recommend Colgate Total for whole mouth health"
+      ].collect {|statement_most_appealing_id| { :name => statement_most_appealing_id } })
+  end
+  
+  desc "Destroy all records from colgate_word and repopulate it"
+  task :statement_last_appealing_id => :environment do
+    StatementLastAppealing.destroy_all
+    StatementLastAppealing.create([
+      "Fights germs in your whole mouth for a full 12 hours","The only toothpaste clinically proven to fight  germs in your whole mouth","Now, clinically proven to fight germs everywhere in your mouth for 12 hours","Dentists recommend Colgate Total for whole mouth health"
+      ].collect {|statement_last_appealing_id| { :name => statement_last_appealing_id } })
+  end
+  
+  desc "Destroy all records from colgate_word and repopulate it"
+  task :purchase => :environment do
+    Purchase.destroy_all
+    Purchase.create([
+      "Supermarket / Grocery", "Drug Store", "Convenience store", "Mass Retailer", "Club Stores", "Water jet cleaners (irrigators) like a Waterpik"
+      ].collect {|purchase| { :name => purchase } })
+  end
   
   desc "Destroy and populate all tables needed for all surveys"
   task :all => :environment do
-    ["age_group","state","income_group","colgate_word","toothpaste_word","oral_care_word","care_need","sampling","care_day","occasion_word", "floss","mouth_wash","toothpaste","breath_mint","whitening_kit","water_jet"
+    ["age_group","state","income_group","colgate_word","toothpaste_word","oral_care_word","care_need","sampling","care_day","occasion_word", "floss","mouth_wash","toothpaste","breath_mint","whitening_kit","water_jet", "floss_care","a_mouth_wash","a_toothpaste","a_breath_mint","a_whitening_kit","a_water_jet","purchase","colgate_important","most_appealing","last_appealing","statement_most_appealing_id","statement_last_appealing_id"
       ].each do |task|
       Rake::Task["populate:#{task}"].execute
     end

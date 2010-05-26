@@ -9,7 +9,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 29) do
+ActiveRecord::Schema.define(:version => 45) do
+
+  create_table "a_breath_mints", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "a_flosses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "a_mouth_washes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "a_toothpastes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "a_water_jets", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "a_whitening_kits", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "age_groups", :force => true do |t|
     t.integer  "min_age"
@@ -31,6 +67,12 @@ ActiveRecord::Schema.define(:version => 29) do
   end
 
   create_table "care_needs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "colgate_importants", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -69,8 +111,31 @@ ActiveRecord::Schema.define(:version => 29) do
     t.integer  "breath_mint_id"
     t.integer  "whitening_kit_id"
     t.integer  "water_jet_id"
+    t.integer  "a_mouth_wash_id"
+    t.integer  "a_floss_id"
+    t.integer  "a_toothpaste_id"
+    t.integer  "a_breath_mint_id"
+    t.integer  "a_whitening_kit_id"
+    t.integer  "a_water_jet_id"
+    t.integer  "fights_germs_id"
+    t.integer  "toothpaste_clinically_id"
+    t.integer  "clinically_proven_id"
+    t.integer  "recommend_colgate_id"
+    t.integer  "purchase_id"
+    t.integer  "most_appealing_id"
+    t.integer  "last_appealing_id"
+    t.integer  "statement_most_appealing_id"
+    t.integer  "statement_last_appealing_id"
+    t.integer  "floss_care_id"
+    t.text     "store"
+    t.integer  "colgate_important_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "colgate_surveys_colgate_importants", :id => false, :force => true do |t|
+    t.integer "colgate_survey_id"
+    t.integer "colgate_important_id"
   end
 
   create_table "colgate_surveys_colgate_words", :id => false, :force => true do |t|
@@ -78,27 +143,33 @@ ActiveRecord::Schema.define(:version => 29) do
     t.integer "colgate_word_id"
   end
 
-  create_table "colgate_surveys_occasion_words", :force => true do |t|
+  create_table "colgate_surveys_occasion_words", :id => false, :force => true do |t|
     t.integer "colgate_survey_id"
     t.integer "occasion_word_id"
   end
 
-  create_table "colgate_surveys_oral_care_words", :force => true do |t|
+  create_table "colgate_surveys_oral_care_words", :id => false, :force => true do |t|
     t.integer "colgate_survey_id"
     t.integer "oral_care_word_id"
   end
 
-  create_table "colgate_surveys_samplings", :force => true do |t|
+  create_table "colgate_surveys_samplings", :id => false, :force => true do |t|
     t.integer "colgate_survey_id"
     t.integer "sampling_id"
   end
 
-  create_table "colgate_surveys_toothpaste_words", :force => true do |t|
+  create_table "colgate_surveys_toothpaste_words", :id => false, :force => true do |t|
     t.integer "colgate_survey_id"
     t.integer "toothpaste_word_id"
   end
 
   create_table "colgate_words", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "floss_cares", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -117,8 +188,25 @@ ActiveRecord::Schema.define(:version => 29) do
     t.datetime "updated_at"
   end
 
+  create_table "last_appealings", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "most_appealings", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mouth_washes", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -130,6 +218,12 @@ ActiveRecord::Schema.define(:version => 29) do
   end
 
   create_table "oral_care_words", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -150,6 +244,18 @@ ActiveRecord::Schema.define(:version => 29) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "statement_last_appealings", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statement_most_appealings", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "states", :force => true do |t|
     t.string   "name"
