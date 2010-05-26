@@ -9,7 +9,6 @@ namespace :populate do
         17..29, 30..38, 39..46, 47..54
       ].collect{ |age_group| {:min_age=>age_group.first, :max_age=>age_group.last} })
   end
- 
 
   desc "Destroy all records from state and repopulate it"
   task :state => :environment do
