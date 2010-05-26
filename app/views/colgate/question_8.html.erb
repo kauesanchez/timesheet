@@ -35,14 +35,13 @@
 		var $curr = $(this).attr( 'id' ).replace( /droppable_/ , '' );
 		var substring_index = ui.draggable.attr('id').search(/\d+/);
 		var value = ui.draggable.attr('id').substring(substring_index);
+		$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids][]" value="'+value+'" />');
+		if( $curr == 1 )
+			$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="toothpaste_word_one_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_one_ids][]" value="'+value+'" />');
+		if( $curr == 2 )
+			$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="toothpaste_word_two_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_two_ids][]" value="'+value+'" />');
 		if( $curr == 3 )
-			$("#<%= controller_name+'_form'%>").append('<input type="hidden" class="ordem_'+$curr+'" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids][]" value="'+value+'" />');
-		else if( $curr == 1 )
-			$("#<%= controller_name+'_form'%>").prepend('<input type="hidden" class="ordem_'+$curr+'" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids][]" value="'+value+'" />');
-		else if( $curr == 2 && $("#<%= controller_name+'_form'%>").find( '.ordem_3' ).hasClass( 'ordem_3' ) )
-			$("#<%= controller_name+'_form'%>").find( '.ordem_3' ).before( '<input type="hidden" class="ordem_'+$curr+'" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids][]" value="'+value+'" />' );
-		else if ( $curr == 2 )
-			$("#<%= controller_name+'_form'%>").append('<input type="hidden" class="ordem_'+$curr+'" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids][]" value="'+value+'" />');
+			$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="toothpaste_word_three_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_three_ids][]" value="'+value+'" />');
 			
 		ui.draggable.addClass("selected");
 		var dropped = $(this);
