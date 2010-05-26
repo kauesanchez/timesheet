@@ -52,27 +52,27 @@ class SurveyController < ApplicationController
   end
   
   def pie_graphs
-     if self.respond_to?(params[:id]+"_dataset")
-       title,dataset = send(params[:id]+"_dataset")
-     else
-       title,dataset = model.question(params[:id]),model.to_dataset_pie_graph(params[:id], {:id=>session[:"#{controller_name}_ids"]})
-     end
-     render :partial=>"reports/pie_graph", :locals=>{:dataset=>dataset, :title=>title}
-   end
+    if self.respond_to?(params[:id]+"_dataset")
+      title,dataset = send(params[:id]+"_dataset")
+    else
+      title,dataset = model.question(params[:id]),model.to_dataset_pie_graph(params[:id], {:id=>session[:"#{controller_name}_ids"]})
+    end
+    render :partial=>"reports/pie_graph", :locals=>{:dataset=>dataset, :title=>title}
+  end
 
-   def bar_graphs
-     if self.respond_to?(params[:id]+"_dataset")
-       title,dataset = send(params[:id]+"_dataset",session[:"#{controller_name}_ids"])
-     else
-       related_model = params[:id].classify.constantize
-       title,dataset = if related_model.respond_to?(:to_dataset_bar_graph)
-         [related_model.to_label_bar_graph,related_model.to_dataset_bar_graph({:"#{controller_name}_survey_id"=>session[:"#{controller_name}_ids"]})]
-       else
-         [model.question(params[:id]),model.to_dataset_bar_graph(params[:id], {:id=>session[:"#{controller_name}_ids"]})]
-       end
-     end
-     render :partial=>"reports/bar_graph", :locals=>{:dataset=>dataset, :title=>title}
-   end
+  def bar_graphs
+    if self.respond_to?(params[:id]+"_dataset")
+      title,dataset = send(params[:id]+"_dataset",session[:"#{controller_name}_ids"])
+    else
+      related_model = params[:id].classify.constantize
+      title,dataset = if related_model.respond_to?(:to_dataset_bar_graph)
+        [related_model.to_label_bar_graph,related_model.to_dataset_bar_graph({:"#{controller_name}_survey_id"=>session[:"#{controller_name}_ids"]})]
+      else
+        [model.question(params[:id]),model.to_dataset_bar_graph(params[:id], {:id=>session[:"#{controller_name}_ids"]})]
+      end
+    end
+    render :partial=>"reports/bar_graph", :locals=>{:dataset=>dataset, :title=>title}
+  end
   
   def add_all_ids
     session[:"#{controller_name}_ids"] = model.ids
