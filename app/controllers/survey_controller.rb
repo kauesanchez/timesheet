@@ -131,8 +131,8 @@ class SurveyController < ApplicationController
           new_key = key.sub(/_id$/,'')
           session[:"#{controller_name}"].send("#{new_key}=", new_key.pluralize.classify.constantize.find(value)) unless value.blank?
         when /^\w+_ids$/
-          # se eh um hash, entao o ordene primeiro!
-          value = value.sort.collect(&:last) if value.is_a?(Hash)
+          # se eh um hash, entao o ordene primeiro! (e esperado que as chaves sejam numeros inteiros)
+          value = value.sort_by{|k,v| k.to_i }.collect(&:last) if value.is_a?(Hash)
           new_key = key.sub(/_ids$/,'')
           #begin
             objects = []
