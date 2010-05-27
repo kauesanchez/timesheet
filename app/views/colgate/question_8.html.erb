@@ -1,5 +1,6 @@
 <% content_for :question do %><%= title %><% end %>
-<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=> "#{controller_name}_form"} do |f| -%>
+<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:method=>:get, :id=> "#{controller_name}_form"} do |f| -%>
+
 	<div class="vgutter enclose">
 		<div class="grid_2">&nbsp;</div>
 		<div class="grid_4 center">
@@ -36,13 +37,7 @@
 		var $curr_name = ui.draggable.attr('title');
 		var substring_index = ui.draggable.attr('id').search(/\d+/);
 		var value = ui.draggable.attr('id').substring(substring_index);
-		$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids][]" value="'+value+'" />');
-		if( $curr == 1 )
-			$("#<%= controller_name+'_form'%>").append('<input type="hidden" name="colgate[toothpaste_word_one]" value="'+$curr_name+'" />');
-		if( $curr == 2 )
-			$("#<%= controller_name+'_form'%>").append('<input type="hidden" name="colgate[toothpaste_word_two]" value="'+$curr_name+'" />');
-		if( $curr == 3 )
-			$("#<%= controller_name+'_form'%>").append('<input type="hidden" name="colgate[toothpaste_word_three]" value="'+$curr_name+'" />');
+		$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids]['+$curr+']" value="'+value+'" />');
 			
 		ui.draggable.addClass("selected");
 		var dropped = $(this);

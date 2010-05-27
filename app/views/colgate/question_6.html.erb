@@ -1,4 +1,3 @@
-
 <% content_for :question do %><%= title%><% end %>
 
 	<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
@@ -9,8 +8,8 @@
 				<% i=0 %>
 				<% Floss.all.each do |floss| %>
 					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">	
-					<%= f.radio_button :floss_id, floss.id %>
-					<%= f.label :"floss_id_#{floss.id}", floss.name %><br/>
+					<%= check_box_tag "#{controller_name}[floss_ids][]", floss.id, @colgate.flosses.include?(floss), :id=>:"colgate_floss_ids_#{floss.id}" %>
+					<%= f.label :"floss_ids_#{floss.id}", floss.name %><br/>
 				</div>
 				<% i+=1 %>
 				<% end %>		
@@ -22,8 +21,8 @@
 				<% MouthWash.all.each do |mouth_wash| %>
 				<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
 
-					<%= f.radio_button :mouth_wash_id, mouth_wash.id %>
-					<%= f.label :"mouth_wash_id_#{mouth_wash.id}", mouth_wash.name %>
+					<%= check_box_tag "#{controller_name}[mouth_wash_ids][]", mouth_wash.id, @colgate.mouth_washes.include?(mouth_wash), :id=>:"colgate_mouth_wash_ids_#{mouth_wash.id}" %>
+					<%= f.label :"mouth_wash_ids_#{mouth_wash.id}", mouth_wash.name %>
 				</div>
 				<% i+=1 %>
 				<% end %>
@@ -34,8 +33,8 @@
 					<% i=0 %>
 					<% Toothpaste.all.each do |toothpaste| %>
 					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">	
-						<%= f.radio_button :toothpaste_id, toothpaste.id %>
-						<%= f.label :"toothpaste_id_#{toothpaste.id}", toothpaste.name %>
+						<%= check_box_tag "#{controller_name}[toothpaste_ids][]", toothpaste.id, @colgate.toothpastes.include?(toothpaste), :id=>:"colgate_toothpaste_ids_#{toothpaste.id}" %>
+						<%= f.label :"toothpaste_ids_#{toothpaste.id}", toothpaste.name %>
 					</div>
 					<% i+=1 %>
 					<% end %>
@@ -46,8 +45,8 @@
 					<% i=0 %>
 					<% BreathMint.all.each do |breath_mint| %>
 					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
-						<%= f.radio_button :breath_mint_id, breath_mint.id %>
-						<%= f.label :"breath_mint_id_#{breath_mint.id}", breath_mint.name %>
+						<%= check_box_tag "#{controller_name}[breath_mint_ids][]", breath_mint.id, @colgate.breath_mints.include?(breath_mint), :id=>:"colgate_breath_mint_ids_#{breath_mint.id}" %>
+						<%= f.label :"breath_mint_ids_#{breath_mint.id}", breath_mint.name %>
 					</div>
 					<% i+=1 %>
 					<% end %>
@@ -58,8 +57,8 @@
 					<% i=0 %>
 					<% WhiteningKit.all.each do |whitening_kit| %>
 					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
-						<%= f.radio_button :whitening_kit_id, whitening_kit.id %>
-						<%= f.label :"whitening_kit_id_#{whitening_kit.id}", whitening_kit.name %>
+						<%= check_box_tag "#{controller_name}[whitening_kit_ids][]", whitening_kit.id, @colgate.whitening_kits.include?(whitening_kit), :id=>:"colgate_whitening_kit_ids_#{whitening_kit.id}" %>
+						<%= f.label :"whitening_kit_ids_#{whitening_kit.id}", whitening_kit.name %>
 					</div>
 					<% i+=1 %>
 					<% end %>
@@ -69,8 +68,8 @@
 					<% i=0 %>
 					<% WaterJet.all.each do |water_jet| %>
 					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
-						<%= f.radio_button :water_jet_id, water_jet.id %>
-						<%= f.label :"water_jet_id_#{water_jet.id}", water_jet.name %>
+						<%= check_box_tag "#{controller_name}[water_jet_ids][]", water_jet.id, @colgate.water_jets.include?(water_jet), :id=>:"colgate_water_jet_ids_#{water_jet.id}" %>
+						<%= f.label :"water_jet_ids_#{water_jet.id}", water_jet.name %>
 					</div>
 					<% i+=1 %>
 					<% end %>

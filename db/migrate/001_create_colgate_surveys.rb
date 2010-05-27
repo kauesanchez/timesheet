@@ -19,12 +19,6 @@ class CreateColgateSurveys < ActiveRecord::Migration
       t.references :new_oral
       t.references :professional
       t.references :other
-      t.references :mouth_wash
-      t.references :floss
-      t.references :toothpaste
-      t.references :breath_mint
-      t.references :whitening_kit
-      t.references :water_jet
       t.integer :a_mouth_wash_id
       t.integer :a_floss_id 
       t.integer :a_toothpaste_id

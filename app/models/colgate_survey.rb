@@ -57,12 +57,12 @@ class ColgateSurvey < Survey
     NUMBER_OF_SAMPLINGS = 3 
 
     belongs_to :age_group
-    belongs_to :floss
-    belongs_to :mouth_wash
-    belongs_to :toothpaste
-    belongs_to :breath_mint
-    belongs_to :whitening_kit
-    belongs_to :water_jet
+    has_and_belongs_to_many :flosses
+    has_and_belongs_to_many :mouth_washes
+    has_and_belongs_to_many :toothpastes
+    has_and_belongs_to_many :breath_mints
+    has_and_belongs_to_many :whitening_kits
+    has_and_belongs_to_many :water_jets
     belongs_to :floss_care
     belongs_to :a_mouth_wash
     belongs_to :a_toothpaste
@@ -88,12 +88,12 @@ class ColgateSurvey < Survey
     has_and_belongs_to_many :oral_care_words
     has_and_belongs_to_many :samplings
    
-    validates_presence_of :floss_id
-    validates_presence_of :mouth_wash_id
-    validates_presence_of :toothpaste_id
-    validates_presence_of :breath_mint_id
-    validates_presence_of :whitening_kit_id
-    validates_presence_of :water_jet_id
+    #validates_presence_of :floss_id
+    #validates_presence_of :mouth_wash_id
+    #validates_presence_of :toothpaste_id
+    #validates_presence_of :breath_mint_id
+    #validates_presence_of :whitening_kit_id
+    #validates_presence_of :water_jet_id
     
     # validates_presence_of :floss_care_id
     #validates_presence_of :a_mouth_wash_id
