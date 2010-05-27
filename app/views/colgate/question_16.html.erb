@@ -1,11 +1,11 @@
 <% content_for :question do %><%= title%><% end %>
 
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
-	<div class="vgutter enclose prefix_2">
+	<div class="grid_14  vgutter enclose prefix_3">
 		
 			<% CareDay.all.each do |care_day| %>
-				<div class="grid_6 markable_item"  style="margin-bottom: 8px;margin-top: 8px;padding-left: 8px; padding-right: 8px;">
-			
+				<div class="grid_3 center markable_item"  style="margin-bottom: 8px;margin-top: 8px;padding-left: 8px; padding-right: 8px; height: 110px;">
+					<%= f.label :"care_day_id_#{care_day.id}", image_tag(care_day.to_img, :alt=>care_day) %>
 					<%= f.radio_button :care_day_id, care_day.id %>
 					<%= f.label "care_day_id_#{care_day.id}", care_day.name %>
 				</div>
@@ -14,5 +14,3 @@
 	
 	<%= render :partial=>'navigation' %>
 <% end -%>
-
-

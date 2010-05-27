@@ -10,28 +10,32 @@
 	<br class="clear" />
   	<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=> "#{controller_name}_form"} do |f| -%>
 	<div class="vgutter enclose">
-		<div class="grid_16">
+		<div class="grid_16 prefix_1 center">
 		<% Sampling.all.shuffle.each do |sampling| %>
-			<div class="grid_2 draggable" id="<%= dom_id sampling %>" title="<%= sampling.name %>" style="height: 60px;">
+			<div class="grid_3  draggable center" id="<%= dom_id sampling %>" title="<%= sampling.name %> " style="height: 110px;">
+				<%= image_tag sampling.to_img, :alt=>sampling.name %>
+				<br class="clear" />
 				<%= sampling.name %>
+				
 			</div>
 		<% end %>
 		</div>
+		
 	</div>
 	<br class="clear" />
 	<div class="vgutter enclose">
 		<div class="grid_5" style="margin-left: 35px;">
-			<div class="droppable luxury_words "id="droppable_1" style="height: 80px;">
+			<div class="droppable luxury_words "id="droppable_1" style="height: 140px;">
 				<p>1</p>
 			</div>
 		</div>
 		<div class="grid_5">
-			<div class="droppable luxury_words"id="droppable_2" style="height: 80px;">
+			<div class="droppable luxury_words"id="droppable_2" style="height: 140px;">
 				<p>2</p>
 			</div>
 		</div>
 		<div class="grid_5">
-			<div class="droppable luxury_words"id="droppable_3" style="height: 80px;">
+			<div class="droppable luxury_words"id="droppable_3" style="height: 140px;">
 				<p>3</p>
 			</div>
 		</div>
