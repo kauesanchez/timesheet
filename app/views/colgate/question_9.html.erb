@@ -1,5 +1,5 @@
-<% content_for :question do %> "Why is <%= @colgate.toothpaste_word_one %> the most important to you?"<% end %>
-	
+<% content_for :question do %> "Why is <%= @colgate.toothpaste_words[0].name %> the most important to you?"<% end %>
+
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
 	<div class="vgutter enclose">
 		<div class="grid_1">&nbsp;</div><%=f.text_area :toothpaste_word_why, :class=>"grid_13" %>
