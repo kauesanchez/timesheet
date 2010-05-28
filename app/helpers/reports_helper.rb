@@ -50,7 +50,7 @@ module ReportsHelper
 					$.get('/reports/remove_relation_ids/#{controller}', { model: '#{model.class.class_name}', value: $(this).val(), checkbox_id: $(this).attr('id') });
 			})
 		</script> \
-		html+=model.respond_to?(:to_label) ? model.to_label : model.respond_to?(:name) ? model.name[0..20] : model.to_s
+		html+=model.respond_to?(:to_label) ? model.to_label : model.respond_to?(:name) ? model.name : model.to_s
   end
   
   def question_has_graph?(graphs, attributes)

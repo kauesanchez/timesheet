@@ -12,7 +12,7 @@ class ColgateController < SurveyController
   end  
   
   def finished
-     @reports = ["age_group_id"]
+     @reports = ["age_group_id","gender"]
      super
    end
   
