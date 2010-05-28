@@ -61,32 +61,12 @@ class ReportsController < ApplicationController
     @model.reflections.each{|key,value| @bar_graphs << key.to_s if [:has_and_belongs_to_many, :has_many].include? value.macro}
   end
   
-  
-    def export_csv
-      filename = I18n.l(Time.now, :format => :short) + "-crohn.csv"
-      content = FasterCSV.generate(:col_sep => "\t") do |csv|
-        fields =  [:id, :created_at]
-        fields += ColgateSurvey::QUESTION.delete_if(&:nil?).collect{|question| question[:fields]}.flatten
-        questions = fields.collect{ |field| (ColgateSurvey::ATTRIBUTE_QUESTION[field] || 0).to_s+': '+ColgateSurvey::question(field) }
-        csv << questions
-        CrohnSurvey.all.each do |survey|
-          data = fields.collect{ |field| survey.chosen(field) }
-          csv << data
-        end
-        csv
-      end
-      content = BOM + Iconv.conv("utf-16le", "utf-8", content)
-      send_data content, :filename => filename
-    end
-
-    def get_value(value)
-      case value
-      when 'false' then false
-      when 'true' then true
-      else value
-      end
-    end
+  def export_csv(model)
+    filename = I18n.l(Time.now, :format => :short) + "-#{model.class_name}.csv"
+    content = model.to_csv([:time_to_answer])
+    content = BOM + Iconv.conv("utf-16le", "utf-8", content)
+    send_data content, :filename => filename
   end
-
+end
 
 
