@@ -8,8 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.login   'login', :controller=>:user, :action=>:login
   map.logout  'logout', :controller=>:user, :action=>:logout
   map.connect 'facebook_share/:attribute/:id', :controller=>:colgate, :action=>:facebook_share
-  map.connect 'survey/:action/:id', :controller=>:Colgate
-  map.connect 'survey/:action/:id.:format', :controller=>:Colgate
+  map.connect 'survey/:action/:id', :controller=>:colgate
+  map.connect 'survey/:action/:id.:format', :controller=>:colgate
 
   
   map.resources :user, :except=>[:show]
