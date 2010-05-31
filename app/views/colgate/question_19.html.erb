@@ -16,11 +16,11 @@
 			<div class="grid_6 prefix_1 suffix_1"><h3><%=StatementMostAppealing.all[0].name%></h3></div>
 			<div class="grid_2  center  markable_item">
 				<%= f.radio_button :statement_most_appealing_id, StatementMostAppealing.all[0].id  %>
-				<%= f.label :"statement_most_appealing_id_"+StatementMostAppealing.all[0].id, image_tag('yes.png', :alt=>'yes' ) %>
+				<%= f.label :statement_most_appealing_id, image_tag('yes.png', :alt=>'yes' ) %>
 			</div>
 			<div class="grid_2 center markable_item">
 				<%= f.radio_button :statement_last_appealing_id, StatementLastAppealing.all[0].id %>
-				<%= f.label :"statement_last_appealing_id_"+StatementLastAppealing.all[0].id, image_tag('no.png', :alt=>'no' ) %>	
+				<%= f.label :statement_last_appealing, image_tag('no.png', :alt=>'no' ) %>	
 			</div>
 		</div>
 		
@@ -28,11 +28,11 @@
 			<div class="grid_6 prefix_1 suffix_1"><h3><%=StatementMostAppealing.all[1].name%></h3></div>
 			<div class="grid_2 center markable_item">
 				<%= f.radio_button :statement_most_appealing_id, StatementMostAppealing.all[1].id %>
-				<%= f.label :"statement_most_appealing_id_"+StatementMostAppealing.all[1].id, image_tag('yes.png', :alt=>'yes' ) %>
+				<%= f.label :statement_most_appealing_id, image_tag('yes.png', :alt=>'yes' ) %>
 			</div>	
 			<div class="grid_2 center markable_item">
 				<%= f.radio_button :statement_last_appealing_id, StatementLastAppealing.all[1].id %>
-				<%= f.label :"statement_last_appealing_id_"+StatementLastAppealing.all[1].id, image_tag('no.png', :alt=>'no' ) %>
+				<%= f.label :statement_last_appealing_id, image_tag('no.png', :alt=>'no' ) %>
 			</div>
 		</div>
 
@@ -41,11 +41,11 @@
 			<div class="grid_6 prefix_1 suffix_1"><h3><%=StatementMostAppealing.all[2].name%></h3></div>
 			<div class="grid_2 center markable_item">
 				<%= f.radio_button :statement_most_appealing_id,StatementMostAppealing.all[2].id %>
-				<%= f.label :"statement_most_appealing_id_"+StatementMostAppealing.all[2].id, image_tag('yes.png', :alt=>'yes' ) %>
+				<%= f.label :statement_most_appealing_id, image_tag('yes.png', :alt=>'yes' ) %>
 			</div>	
 			<div class="grid_2 center markable_item">
 				<%= f.radio_button :statement_last_appealing_id, StatementLastAppealing.all[2].id %>
-				<%= f.label :"statement_last_appealing_id_"+StatementLastAppealing.all[2].id, image_tag('no.png', :alt=>'no' ) %>
+				<%= f.label :statement_last_appealing_id, image_tag('no.png', :alt=>'no' ) %>
 			</div>
 		</div>
 		
@@ -54,11 +54,11 @@
 			<div class="grid_6 prefix_1 suffix_1"><h3><%=StatementMostAppealing.all[3].name%></h3></div>
 			<div class="grid_2 center markable_item">
 				<%= f.radio_button :statement_most_appealing_id, StatementMostAppealing.all[3].id %>
-				<%= f.label :"statement_most_appealing_id_"+StatementMostAppealing.all[3].id, image_tag('yes.png', :alt=>'yes' ) %>
+				<%= f.label :statement_most_appealing_id, image_tag('yes.png', :alt=>'yes' ) %>
 			</div>	
 			<div class="grid_2 center markable_item">
 				<%= f.radio_button :statement_last_appealing_id, StatementLastAppealing.all[3].id %>
-				<%= f.label :"statement_last_appealing_id_"+StatementLastAppealing.all[3].id, image_tag('no.png', :alt=>'no' ) %>
+				<%= f.label :statement_last_appealing_id, image_tag('no.png', :alt=>'no' ) %>
 			</div>
 		</div>
 		
