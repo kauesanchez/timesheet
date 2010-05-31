@@ -13,6 +13,7 @@
 			</div>
 
 			<div class="grid_15 vgutter enclose ">
+
 				<div class="grid_6 prefix_1 suffix_1 "><%=MostAppealing.all[0].name%></div>
 				<div class="grid_2 center">
 					<%= f.radio_button :most_appealing_id, MostAppealing.all[0].id %>
@@ -32,12 +33,10 @@
 				</div>	
 				<div class="grid_2  center">
 					<%= f.radio_button :last_appealing_id, LastAppealing.all[1].id %>
-					<%= f.label :"last_appealing_id_#{LastAppealing.all[1].id}" , image_tag('no.png', :alt=>'Least Appealing' ) %>
-					
+					<%= f.label :"last_appealing_id_#{LastAppealing.all[1].id}" , image_tag('no.png', :alt=>'Least Appealing' ) %>	
 				</div>
 			</div>
 
-			
 			<div class="grid_15 vgutter enclose ">
 				<div class="grid_6 prefix_1 suffix_1"><%=MostAppealing.all[2].name%></div>
 				<div class="grid_2  center">
@@ -54,6 +53,7 @@
 			<div class="grid_15 vgutter enclose ">
 				<div class="grid_6 prefix_1 suffix_1"><%=MostAppealing.all[3].name%></div>
 				<div class="grid_2  center">
+
 					<%= f.radio_button :most_appealing_id, MostAppealing.all[3].id %>
 					<%= f.label :"most_appealing_id_#{MostAppealing.all[3].id}", image_tag('yes.png', :alt=>'Most Appealing' ) %>
 				</div>	

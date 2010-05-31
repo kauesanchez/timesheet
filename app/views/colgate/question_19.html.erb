@@ -2,18 +2,16 @@
 
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
 	<div class="grid_16 vgutter enclose">
-	 
-
-			<div class="grid_15 vgutter enclose center">
-				<div class="grid_6 prefix_2">&nbsp;</div>
-				<div class="grid_2">
-					most appealing
-				</div>
-				<div class="grid_2">
-					least appealing
-				</div>
+		<div class="grid_15 vgutter enclose center">
+			<div class="grid_6 prefix_2">&nbsp;</div>
+			<div class="grid_2">
+				most appealing
 			</div>
-		
+			<div class="grid_2">
+				least appealing
+			</div>
+		</div>
+
 			<div class="grid_15 vgutter enclose">
 				
 				<div class="grid_6 prefix_1 suffix_1"><%=StatementMostAppealing.all[0].name%></div>
@@ -23,7 +21,7 @@
 				</div>
 				<div class="grid_2 center ">
 					<%= f.radio_button :statement_last_appealing_id, StatementLastAppealing.all[0].id %>
-					<%= f.label :"statement_last_appealing_id_#{StatementLastAppealing.all[0].id}", image_tag('yes.png', :alt=>'Last Appealing' ) %>
+					<%= f.label :"statement_last_appealing_id_#{StatementLastAppealing.all[0].id}", image_tag('no.png', :alt=>'Last Appealing' ) %>
 					
 				</div>
 			</div>
@@ -36,10 +34,12 @@
 				</div>	
 				<div class="grid_2 center ">
 					<%= f.radio_button :statement_last_appealing_id, StatementLastAppealing.all[1].id %>
-					<%= f.label :"statement_last_appealing_id_#{StatementLastAppealing.all[1].id}", image_tag('yes.png', :alt=>'Last Appealing' ) %>
+					<%= f.label :"statement_last_appealing_id_#{StatementLastAppealing.all[1].id}", image_tag('no.png', :alt=>'Last Appealing' ) %>
 					
 				</div>
 			</div>
+		</div>
+		
 
 			
 			<div class="grid_15 vgutter enclose">
@@ -50,7 +50,7 @@
 				</div>	
 				<div class="grid_2 center ">
 					<%= f.radio_button :statement_last_appealing_id, StatementLastAppealing.all[2].id %>
-					<%= f.label :"statement_last_appealing_id_#{StatementLastAppealing.all[2].id}", image_tag('yes.png', :alt=>'Last Appealing' ) %>
+					<%= f.label :"statement_last_appealing_id_#{StatementLastAppealing.all[2].id}", image_tag('no.png', :alt=>'Last Appealing' ) %>
 					
 				</div>
 			</div>
@@ -64,9 +64,10 @@
 				</div>	
 				<div class="grid_2 center ">
 					<%= f.radio_button :statement_last_appealing_id, StatementLastAppealing.all[3].id %>
-					<%= f.label :"statement_last_appealing_id_#{StatementLastAppealing.all[3].id}", image_tag('yes.png', :alt=>'Last Appealing' ) %>
+					<%= f.label :"statement_last_appealing_id_#{StatementLastAppealing.all[3].id}", image_tag('no.png', :alt=>'Last Appealing' ) %>
 				</div>
-			</div>		
+			
+
 	</div>
 	
 	<%= render :partial=>'navigation' %>
