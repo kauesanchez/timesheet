@@ -17,8 +17,8 @@ class ColgateSurvey < Survey
     QUESTION[15] = {:title=>"Of the three most important oral care needs that you have selected, please drag three of the most important occasions / situations (in order of importance) that you need your top oral care needs to be taken care of:",:fields=>[:occasion_words]}
     QUESTION[16] = {:title=>"If you could only choose one item to take care of your oral care needs, which one would you choose to get your through the day. Please click on one item.",:fields=>[:care_day_id]}
     QUESTION[17] = {:title=>"Please select how frequently you purchase only the items you use for your oral care needs. ",:fields=>[:floss_care_id,:a_mouth_wash_id,:a_toothpaste_id,:a_breath_mint_id,:a_whitening_kit_id,:a_water_jet_id]}
-    QUESTION[18] = {:title=>"Please click on the  statement you find the most appealing and cllick on the  statement you find the least appealing:",:fields=>[:most_appealing_id,:last_appealing_id]}
-    QUESTION[19] = {:title=>"Please click on the  statement you find the most appealing and cllick on the  statement you find the least appealing:",:fields=>[:statement_most_appealing_id,:statement_last_appealing_id]}
+    QUESTION[18] = {:title=>"Please click on the statements you find appealing or not appealing",:fields=>[:most_appealing_id,:last_appealing_id]}
+    QUESTION[19] = {:title=>"Please click on the statements you find appealing or not appealing",:fields=>[:statement_most_appealing_id,:statement_last_appealing_id]}
     QUESTION[20] = {:title=>"Where do you go the most to purchase your oral care products? Please click on only one.",:fields=>[:purchase_id]}
     QUESTION[21] = {:title=>"Can you please let us know the name of the store you frequent the most for your oral care purchases?",:fields=>[:store]}
     

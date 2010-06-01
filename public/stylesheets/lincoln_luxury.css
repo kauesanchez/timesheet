@@ -85,7 +85,9 @@ img.draggable {
 	height: 70px;
 }
 
-
+.pad{
+	padding-top: 40px;
+}
 
 .droppable {
 	border: 1px solid #000;

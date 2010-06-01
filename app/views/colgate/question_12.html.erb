@@ -3,7 +3,7 @@
 	<div class="vgutter enclose">
 		<div class="grid_2">&nbsp;</div>
 		<% OralCareWord.all.shuffle.each do |oral_care_word| %>
-			<div class="draggable grid_2" id="<%= dom_id oral_care_word %>" style="height: 60px;">
+			<div class="draggable grid_2" id="<%= dom_id oral_care_word %>" style="height: 25px;">
 				<%= oral_care_word.name %>
 			</div>
 		<% end %>
