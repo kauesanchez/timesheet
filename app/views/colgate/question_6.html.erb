@@ -5,7 +5,7 @@
 			<div class="grid_12  prefix_2 ">
 				<div class="grid_12 vgutter ">	
 					
-				<div class="grid_3 floss"><%=	image_tag('floss.png', :alt=>'floss' ) %><%=@model::LABELS[:floss]%> </div>
+				<div class="grid_3 floss"><%=image_tag('floss.png', :alt=>'floss' ) %><%=@model::LABELS[:floss]%> </div>
 				<% i=0 %>
 				<% Floss.all.each do |floss| %>
 					<div class="grid_2 pad <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">	
@@ -30,7 +30,7 @@
 			</div>	
 			<br/>
 			<div class="grid_12 vgutter ">		
-					<div class="grid_3 floss"><%=	image_tag('brush.png', :alt=>'toothpaste' ) %><%=@model::LABELS[:toothpaste]%></div>
+					<div class="grid_3 floss"><%=image_tag('brush.png', :alt=>'toothpaste' ) %><%=@model::LABELS[:toothpaste]%></div>
 					<% i=0 %>
 					<% Toothpaste.all.each do |toothpaste| %>
 					<div class="grid_2 pad <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">	
@@ -42,7 +42,7 @@
 			</div>	
 			<br/>
 			<div class="grid_12 vgutter ">	
-					<div class="grid_3 floss"><%=	image_tag('breathmints.png', :alt=>'breath mint' ) %><%=@model::LABELS[:breath_mint]%></div>
+					<div class="grid_3 floss"><%=image_tag('breathmints.png', :alt=>'breath mint' ) %><%=@model::LABELS[:breath_mint]%></div>
 					<% i=0 %>
 					<% BreathMint.all.each do |breath_mint| %>
 					<div class="grid_2 pad <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
@@ -55,7 +55,7 @@
 				
 			</div>	
 			<div class="grid_12 vgutter ">	
-					<div class="grid_3 floss"><%=	image_tag('kit.png', :alt=>' whitening kit' ) %><%=@model::LABELS[:whitening_kit]%></div>
+					<div class="grid_3 floss"><%=image_tag('kit.png', :alt=>' whitening kit' ) %><%=@model::LABELS[:whitening_kit]%></div>
 					<% i=0 %>
 					<% WhiteningKit.all.each do |whitening_kit| %>
 					<div class="grid_2 pad <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
@@ -66,7 +66,7 @@
 					<% end %>
 			</div>
 			<div class="grid_12 vgutter ">	
-					<div class="grid_3 floss "><%=	image_tag('waterpik.png', :alt=>'water jet' ) %><%=@model::LABELS[:water_jet]%></div>
+					<div class="grid_3 floss "><%=image_tag('waterpik.png', :alt=>'water jet' ) %><%=@model::LABELS[:water_jet]%></div>
 					<% i=0 %>
 					<% WaterJet.all.each do |water_jet| %>
 					<div class="grid_2 pad <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
