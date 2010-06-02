@@ -82,7 +82,7 @@ namespace :populate do
   task :sampling => :environment do
     Sampling.destroy_all
     Sampling.create([
-      "Sampling", "Packaging", "Coupon / discount / promotion","New usage / Claim / application Price", "New oral care solution / flavor / texture","Professional / clinical endorsement","Other"
+      "Sampling", "Packaging", "Coupon / discount / promotion","New usage / Claim /New application", "New oral care solution / flavor / texture","Professional / clinical endorsement","Other","Price"
       ].collect {|sampling| { :name => sampling } })
   end
   

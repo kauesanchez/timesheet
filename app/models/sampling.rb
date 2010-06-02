@@ -5,9 +5,10 @@ class Sampling < ActiveRecord::Base
         when 'Sampling' then "sampling"
         when 'Packaging' then "packaging"
         when 'Coupon / discount / promotion' then "coupon"
-        when 'New usage / Claim / application Price' then "price"
+        when 'New usage / Claim /New application' then "price"
         when 'New oral care solution / flavor / texture' then "flavor"
         when 'Professional / clinical endorsement' then "professional"
+        when 'Price' then "price2"
         when 'Other' then "others"
 
         else""

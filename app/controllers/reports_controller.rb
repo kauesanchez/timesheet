@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
     graphs
     @title =  'Healthy Mouth Survey Statistics'
     @pie_graphs -= ["time_to_answer","store","healthy_mouth","toothpaste_word_why","toothpaste_importance_other","oral_importance_why"]
-    @bar_graphs+=[ ]
+    @bar_graphs+=[ "floss_id","mouth_wash_id","toothpaste_id","breath_mint_id","whitening_kit_id", "water_jet_id"]
     respond_to do |format|
       format.html
       format.csv { export_csv(@model) }

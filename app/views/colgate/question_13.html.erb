@@ -1,4 +1,5 @@
-<% content_for :question do %> "Why did you select  <%= @colgate.oral_care_words[0].name %> as your most important?"<% end %>
+<% content_for :question do %> "Why did you select  <%= @colgate.oral_care_words[0].name %> as your most important?"
+	<br/><div class="write">(should write something in the field)</div><% end %>
 	
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
 	<div class="vgutter enclose">

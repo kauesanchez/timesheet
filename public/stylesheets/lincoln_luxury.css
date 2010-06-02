@@ -39,7 +39,15 @@ body { font-size: 13px; height: 100%; background: url('/images/bg_gradient.png')
 	margin-bottom: 4px;
 	border-top:1px solid;
 }
+
+.write {
+	font-size: 16px;
+	margin: 3px 0;
+	font-weight: bold;
+}
+
 .center {text-align:center;}
+
 #container {
 	padding-bottom:16px;
 }
@@ -87,6 +95,10 @@ img.draggable {
 
 .pad{
 	padding-top: 40px;
+}
+
+.pad2{
+	padding-top: 8px;
 }
 
 .droppable {

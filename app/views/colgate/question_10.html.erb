@@ -1,4 +1,5 @@
-<% content_for :question do %> <%= title %> <% end %>
+<% content_for :question do %> <%= title %> 
+		<br/><div class="write">Please rank your top three reasons.</div><% end %>
 
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
 	<div class="vgutter enclose">
