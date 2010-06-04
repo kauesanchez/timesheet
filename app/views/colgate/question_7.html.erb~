@@ -1,5 +1,5 @@
 <% content_for :question do %> <%= title %>
-	<br/><div class="write">(Please answer in the box below)</div> <% end %>
+	<br/><div class="write">(should write something in the field)</div> <% end %>
 
 	
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>

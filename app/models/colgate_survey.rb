@@ -15,7 +15,7 @@ class ColgateSurvey < Survey
     QUESTION[13] = {:title=>"Why did you select -- as your most important?",:fields=>[:oral_importance_why]}
     QUESTION[14] = {:title=>"Of the three important oral care needs you have selected in a previous question, please click on the one brand below, that would best satisfy all your most important oral care needs.",:fields=>[:colgate_important_id]}
     QUESTION[15] = {:title=>"Of the three most important oral care needs that you have selected, please drag three of the most important occasions / situations (in order of importance) that you need your top oral care needs to be taken care of:",:fields=>[:occasion_words]}
-    QUESTION[16] = {:title=>"If you could only choose one item to take care of your oral care needs, which one would you choose to get your through the day. Please click on one item.",:fields=>[:care_day_id]}
+    QUESTION[16] = {:title=>"If you could only choose one item to take care of your oral care needs, which one would you choose to get you through the day. Please click on one item.",:fields=>[:care_day_id]}
     QUESTION[17] = {:title=>"Please select how frequently you purchase the oral care products you depend on the most.",:fields=>[:floss_care_id,:a_mouth_wash_id,:a_toothpaste_id,:a_breath_mint_id,:a_whitening_kit_id,:a_water_jet_id]}
     QUESTION[18] = {:title=>"Please click on the statements you find appealing or not appealing",:fields=>[:most_appealing_id,:last_appealing_id]}
     QUESTION[19] = {:title=>"Please click on the statements you find appealing or not appealing",:fields=>[:statement_most_appealing_id,:statement_last_appealing_id]}
@@ -37,13 +37,13 @@ class ColgateSurvey < Survey
      LABELS[:toothpaste]="Toothpaste / tooth brush"
      LABELS[:breath_mint]="Breath mints, gums, strips"
      LABELS[:whitening_kit]="Whitening kits / rinses / toothpastes"
-     LABELS[:water_jet]="Water jet cleaners (irrigators)like a Waterpik"
+     LABELS[:water_jet]="Water jet cleaners (irrigators)"
       LABELS[:floss_care]="Floss; strips, tapes, picks"
       LABELS[:a_mouth_wash]="Mouthwash  / rinse / antiseptics"
       LABELS[:a_toothpaste]="Toothpaste / tooth brush"
       LABELS[:a_breath_mint]="Breath mints, gums, strips"
       LABELS[:a_whitening_kit]="Whitening kits / rinses / toothpastes"
-      LABELS[:a_water_jet]="Water jet cleaners (irrigators)like a Waterpik"
+      LABELS[:a_water_jet]="Water jet cleaners (irrigators)"
    
     
       type_validations
