@@ -37,7 +37,7 @@ $( '.markable_item > label' ).click( function(){
 		}
 		else
 		{
-			$('.marked_item').removeClass('marked_item').addClass('markable_item');
+			$( this ).parent().parent().find('.marked_item').removeClass('marked_item').addClass('markable_item');
 			$( this ).parent().removeClass('markable_item').addClass('marked_item');		
 		}
 	}
@@ -51,7 +51,7 @@ $( '.markable_item' ).click( function(){
 	else
 	{
 		$( this ).find( 'input[type="radio"]' ).attr('checked' , 'checked');
-		$('.marked_item').removeClass('marked_item').addClass('markable_item');
+		$( this ).parent().find('.marked_item').removeClass('marked_item').addClass('markable_item');
 		$( this ).removeClass('markable_item').addClass('marked_item');		
 	}
 });

@@ -1,5 +1,13 @@
 <div class="grid_16"><h1>Thank you for answering our survey!</h1></div>
-<h2 class="grid_12 prefix_2 suffix_2">Below are how many users answered the survey with the same answer as you: </h2>
+<h2 class="grid_12 prefix_2 suffix_2">
+	
+	If you enjoyed answering the survey, please click the Like button bellow!
+	<br />
+	<br />
+	<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fhealthymouth.generalquestions.info%2F&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+	
+	</h2>
+<!--
 <% @reports.each do |report| %>
 	<div class="grid_16">&nbsp;</div>
 	<div class="grid_3 prefix_2"><%= ColgateSurvey.question(report) %>:</div>
@@ -9,14 +17,17 @@
 	<div class="grid_2"><a name="fb_share" type="button" share_url="http://healthymouth.generalquestions.info/facebook_share/<%= report %>/<%=@colgate.id %>" href="http://www.facebook.com/sharer.php">share</a></div>
 	<br class="clear vgutter"/>
 <% end %>
+-->
 
 <% content_for :javascript do %>
 <script type="text/javascript">
+/*
 	<% @reports.each do |report| %>
 		$('#<%=report%>').progressbar({ value: <%= @colgate.percent(report) %> });
 	<% end %>
+*/
 </script>
-<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+<!--<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>-->
 <% end %>
 
 
