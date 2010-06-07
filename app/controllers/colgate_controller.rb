@@ -19,10 +19,8 @@ class ColgateController < SurveyController
   
   def facebook_share
      @colgate = ColgateSurvey.find(params[:id])
-     @title="What's Your Definition of Luxury Car?"
-     @description="I got a #{@colgate.chosen(params[:attribute])} car. 
-     #{@quality.percent(params[:attribute]).to_i}% other people got the same one.
-     See how many of my friends also got a #{@colgate.chosen(params[:attribute])} car."
+     @title="What's Your Definition of healthy mouth?"
+     @description=""
      render :action=>:facebook, :layout=>false
    end
   

@@ -276,7 +276,7 @@ namespace :populate do
   task :purchase => :environment do
     Purchase.destroy_all
     Purchase.create([
-      "Supermarket / Grocery", "Drug Store", "Convenience store", "Mass Retailer", "Club Stores"
+      "Supermarket / Grocery", "Drug Store", "Convenience store", "Mass Retailer", "Club Stores", "Water jet cleaners (irrigators)"
       ].collect {|purchase| { :name => purchase } })
   end
   

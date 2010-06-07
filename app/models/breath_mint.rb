@@ -7,7 +7,7 @@ class BreathMint < ActiveRecord::Base
        when 'Toothpaste / tooth brush' then "brush"
        when 'Breath mints, gums, strips' then "breathmints"
        when 'Whitening kits / rinses / toothpastes' then "kit"
-       when 'Water jet cleaners (irrigators) like a Waterpik' then "waterpik"
+       when 'Water jet cleaners (irrigators)' then "waterpik"
 
        else""
        end + ".png"
