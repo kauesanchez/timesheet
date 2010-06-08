@@ -11,38 +11,16 @@ class ColgateController < SurveyController
      ["Average technology rates",dataset]
   end  
   
-  
-  
   def finished
-     @reports = ["age_group_id"]
-     if cookies[:colgate_id].blank? || !model::PUBLISHED
-       if session[:colgate_id].blank?
-         session[:colgate_id] = ColgateSurvey.new
-         redirect_to :action=>:questions, :id=>1
-       else
-         @question_number = ColgateSurvey::NUMBER_OF_QUESTIONS
-         @colgate = session[:colgate]
-         @colgate.time_to_answer = Time.now - session[:start_time].to_i
-         @colgate.save
-         cookies[:colgate_id] = { 
-           :value=>@colgate.id,
-           :expires => 1.year.from_now
-         }
-       end
-     else
-       @question_number = ColgateSurvey::NUMBER_OF_QUESTIONS
-       @colgate = ColgateSurvey.find(cookies[:colgate_id])
-       session[:start_time] = Time.now - @colgate.time_to_answer
-     end
+     @reports = ["age_group_id","gender"]
+     super
    end
   
   
   def facebook_share
      @colgate = ColgateSurvey.find(params[:id])
-     @title="What's Your Definition of Luxury Car?"
-     @description="I got a #{@colgate.chosen(params[:attribute])} car. 
-     #{@quality.percent(params[:attribute]).to_i}% other people got the same one.
-     See how many of my friends also got a #{@colgate.chosen(params[:attribute])} car."
+     @title="What's Your Definition of healthy mouth?"
+     @description=""
      render :action=>:facebook, :layout=>false
    end
   

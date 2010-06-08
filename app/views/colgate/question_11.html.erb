@@ -1,8 +1,10 @@
-<% content_for :question do %> You chose <%=@colgate.sampling_one%> as your number one reason, can you please share why. <% end %>
+<% content_for :question do %>Why did you select  <%= @colgate.oral_care_words[0].name %> as your most important?
+	<br/><div class="write">(Please answer in the box below)</div><% end %>
+	<br class="clear" />
 	
 <% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
 	<div class="vgutter enclose">
-		<div class="grid_1">&nbsp;</div><%=f.text_area :toothpaste_importance_other, :class=>"grid_13" %>
+		<div class="grid_1">&nbsp;</div><%=f.text_area :oral_importance_why, :class=>"grid_13" %>
 	</div>
 	
 	<%= render :partial=>'navigation' %>

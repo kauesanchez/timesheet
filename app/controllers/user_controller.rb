@@ -20,8 +20,6 @@ class UserController < ApplicationController
     redirect_to :action=>:login
   end
 
-  
-
   def forgot_password
   end
   

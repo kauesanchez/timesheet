@@ -22,7 +22,7 @@
 					:comment=>(Comment.find_by_report_and_question(action_name, question_number)||Comment.new), :report=>action_name, :question=>question_number
 				} %>
 			</div>
-			<% attributes[:fields].each_with_index do |attribute,i|
+				<% attributes[:fields].each_with_index do |attribute,i|
 				if @pie_graphs.include? attribute.to_s %>
 					<div class="grid_8 center <%= i.even? ? "alpha" : "omega" %>">
 						<div id="<%= attribute %>" class="center">&nbsp;</div>

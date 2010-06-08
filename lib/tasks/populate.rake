@@ -34,7 +34,7 @@ namespace :populate do
   task :colgate_word => :environment do
     ColgateWord.destroy_all
     ColgateWord.create([
-      "Floss; strips, tapes, picks", "Mouthwash  / rinse / antiseptics", "Toothpaste / tooth brush", "Breath mints, gums, strips", "Whitening kits / rinses / toothpastes", "Water jet cleaners (irrigators) like a Waterpik"
+      "Floss; strips, tapes, picks", "Mouthwash  / rinse / antiseptics", "Toothpaste / tooth brush", "Breath mints, gums, strips", "Whitening kits / rinses / toothpastes", "Water jet cleaners (irrigators)"
       ].collect {|colgate_word| { :name => colgate_word } })
   end
   
@@ -58,7 +58,7 @@ namespace :populate do
   task :oral_care_word => :environment do
     OralCareWord.destroy_all
     OralCareWord.create([
-      "Clean Teeth", "Fresh Breath", "Healthy Mouth", "Sensitive Teeth","Healthy Gums", "White Teeth"
+      "Clean Teeth", "Fresh Breath", "Healthy Mouth", "Gentle on Teeth","Healthy Gums", "White Teeth"
       ].collect {|oral_care_word| { :name => oral_care_word } })
   end
   
@@ -66,7 +66,7 @@ namespace :populate do
    task :occasion_word => :environment do
      OccasionWord.destroy_all
      OccasionWord.create([
-       "With family", "With friends", "After dinner", "At the Dentist","After lunch", "At work: meetings, clients, customers","Meeting new people","Intimate moments","Sports","After snacks"
+       "With family", "With friends", "After dinner", "At the Dentist","After lunch", "At work: meetings, clients, customers","Meeting new people","Intimate moments","After snacks"
        ].collect {|occasion_word| { :name => occasion_word } })
    end
   
@@ -74,7 +74,7 @@ namespace :populate do
   task :care_need => :environment do
     CareNeed.destroy_all
     CareNeed.create([
-      "Clean Teeth", "Fresh Breath", "Healthy Mouth", "Sensitive Teeth","Healthy Gums", "White Teeth"
+      "Clean Teeth", "Fresh Breath", "Healthy Mouth", "Gentle on Teeth","Healthy Gums", "White Teeth"
       ].collect {|care_need| { :name => care_need } })
   end
   
@@ -82,8 +82,7 @@ namespace :populate do
   task :sampling => :environment do
     Sampling.destroy_all
     Sampling.create([
-      "Sampling", "Packaging", "Coupon / discount / promotion","New usage / Claim / application
-      Price", "New oral care solution / flavor / texture","Professional / clinical endorsement","Other"
+      "Sampling", "Packaging", "Coupon / discount / promotion","New usage / Claim /New application", "New oral care solution / flavor / texture","Professional / clinical endorsement","Other","Price"
       ].collect {|sampling| { :name => sampling } })
   end
   
@@ -237,7 +236,7 @@ namespace :populate do
   task :care_day => :environment do
     CareDay.destroy_all
     CareDay.create([
-      "Floss; strips, tapes, picks", "Mouthwash  / rinse / antiseptics", "Toothpaste / tooth brush", "Breath mints, gums, strips", "Whitening kits / rinses / toothpastes", "Water jet cleaners (irrigators) like a Waterpik"
+      "Floss; strips, tapes, picks", "Mouthwash  / rinse / antiseptics", "Toothpaste / tooth brush", "Breath mints, gums, strips", "Whitening kits / rinses / toothpastes", "Water jet cleaners (irrigators)"
       ].collect {|care_day| { :name => care_day } })
   end
   
@@ -277,7 +276,7 @@ namespace :populate do
   task :purchase => :environment do
     Purchase.destroy_all
     Purchase.create([
-      "Supermarket / Grocery", "Drug Store", "Convenience store", "Mass Retailer", "Club Stores", "Water jet cleaners (irrigators) like a Waterpik"
+      "Supermarket / Grocery", "Drug Store", "Convenience store", "Mass Retailer", "Club Stores"
       ].collect {|purchase| { :name => purchase } })
   end
   

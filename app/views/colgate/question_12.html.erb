@@ -1,35 +1,5 @@
-<% content_for :question do %><%= title %><% end %>
-<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=> "#{controller_name}_form"} do |f| -%>
-	<div class="vgutter enclose">
-		<div class="grid_2">&nbsp;</div>
-		<% OralCareWord.all.shuffle.each do |oral_care_word| %>
-			<div class="draggable grid_2" id="<%= dom_id oral_care_word %>" style="height: 60px;">
-				<%= oral_care_word.name %>
-			</div>
-		<% end %>
-	</div>
-	<br class="clear" />
-	<div class="vgutter enclose">
-		<div class="grid_5" style="margin-left: 35px;">
-			<div class="droppable luxury_words "id="droppable_1" style="height: 80px;">
-				<p>1</p>
-			</div>
-		</div>
-		<div class="grid_5">
-			<div class="droppable luxury_words"id="droppable_2" style="height: 80px;">
-				<p>2</p>
-			</div>
-		</div>
-		<div class="grid_5">
-			<div class="droppable luxury_words"id="droppable_3" style="height: 80px;">
-				<p>3</p>
-			</div>
-		</div>		
-	</div>
-			
-	<%= render :partial=>'navigation' %>
-<% end %>
 
+<<<<<<< HEAD:app/views/colgate/question_12.html.erb
 <% content_for :javascript do %>
 <script type="text/javascript">
 	function addToForm(event,ui){
@@ -52,3 +22,32 @@
 	});
 </script>
 <% end %>
+=======
+	<% content_for :question do %><%= title %><% end %>
+
+	<div class="grid_4 prefix_6	">
+	<% (0...ColgateSurvey::NUMBER_OF_ORAL_CARE_WORDS).each do |i| %>
+	<div class="grid_4 care center "><%= @colgate.oral_care_words[i].name %></div>
+	<%end%>
+	</div>	
+	
+	<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
+		<div class=" grid_16 vgutter enclose prefix_2 center">
+			<% @colgate.toothpaste_words.each do |word| %>
+				<div class="grid_4 markable_item" style="margin-bottom: 8px;margin-top: 8px;padding-left: 8px; padding-right: 8px;  ">
+					<%= f.label "colgate_important_id_#{word.id}", image_tag(word.to_img)  %>
+					<%= f.radio_button :colgate_important_id, word.id %>
+				  	<%- f.label "colgate_important_id#{word.id}", word.name %>
+				
+          			
+				</div>
+			<% end %>
+		</div>
+		
+	
+		<%= render :partial=>'navigation'%>
+	<% end -%>
+	
+	
+	 
+>>>>>>> b8808b01a9cf254f0be91b3b7e3817e17c83b2eb:app/views/colgate/question_12.html.erb

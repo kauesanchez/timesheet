@@ -5,7 +5,7 @@ module ReportsHelper
   
   def pie_graph(attribute, controller)
     %Q\<script type="text/javascript">
-    var myChart = new FusionCharts("/swfs/Pie3D.swf", "#{attribute}", "464px", "300px");
+    var myChart = new FusionCharts("/swfs/Pie3D.swf", "#{attribute}", "600px", "300px");
     myChart.setDataURL("#{controller}/pie_graphs/#{attribute}.xml");
     myChart.render("#{attribute}");
     </script>\
@@ -17,7 +17,7 @@ module ReportsHelper
   
   def bar_graph(relation, controller)
     %Q\<script type="text/javascript">
-    var myChart = new FusionCharts("/swfs/Column3D.swf", "#{relation}", "944px", "450px");
+    var myChart = new FusionCharts("/swfs/Column3D.swf", "#{relation}", "944px", "600px");
     myChart.setDataURL("#{controller}/bar_graphs/#{relation}.xml");
     myChart.render("#{relation}");
     </script>\
@@ -50,7 +50,7 @@ module ReportsHelper
 					$.get('/reports/remove_relation_ids/#{controller}', { model: '#{model.class.class_name}', value: $(this).val(), checkbox_id: $(this).attr('id') });
 			})
 		</script> \
-		html+=model.respond_to?(:to_label) ? model.to_label : model.respond_to?(:name) ? model.name[0..20] : model.to_s
+		html+=model.respond_to?(:to_label) ? model.to_label : model.respond_to?(:name) ? model.name : model.to_s
   end
   
   def question_has_graph?(graphs, attributes)

@@ -1,4 +1,7 @@
+<% content_for :question do %><%= title%><% end %>
+<br class="clear" />
 
+<<<<<<< HEAD:app/views/colgate/question_14.html.erb
 	<% content_for :question do %><%= title %><% end %>
 
 	<div class="grid_4 prefix_6	">
@@ -14,13 +17,19 @@
 					<%= f.label "colgate_important_id_#{word.id}", image_tag(word.to_img)  %>
 					<%= f.radio_button :colgate_important_id, word.id %>
 				  	<%- f.label "colgate_important_id#{word.id}", word.name %>
+=======
+<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
+	<div class="grid_12  vgutter enclose prefix_3">
+		
+			<% CareDay.all.each do |care_day| %>
+				<div class="grid_3 center markable_item"  style="margin-bottom: 8px;margin-top: 8px;padding-left: 8px; padding-right: 8px; height: 110px;">
+					<%= f.label :"care_day_id_#{care_day.id}", image_tag(care_day.to_img, :alt=>care_day) %>
+					<%= f.radio_button :care_day_id, care_day.id %>
+					<%= f.label "care_day_id_#{care_day.id}", care_day.name %>
+>>>>>>> b8808b01a9cf254f0be91b3b7e3817e17c83b2eb:app/views/colgate/question_14.html.erb
 				</div>
 			<% end %>
-		</div>
-		
+	</div>
 	
-		<%= render :partial=>'navigation'%>
-	<% end -%>
-	
-	
-	 
+	<%= render :partial=>'navigation' %>
+<% end -%>

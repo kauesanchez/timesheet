@@ -1,83 +1,59 @@
+<% content_for :question do %><%= title %><% end %>
+<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:method=>:get, :id=> "#{controller_name}_form"} do |f| -%>
+	<br class="clear" />
 
-<% content_for :question do %><%= title%><% end %>
-
-	<% form_for controller_name, :url=>{:action=>'questions', :id=>(@question_number + 1)}, :html=>{:id=>"#{controller_name}_form"} do |f| -%>
-		<div class="vgutter enclose">
-			<div class="grid_12  prefix_2 ">
-				<div class="grid_12 vgutter ">	
-				<div class="grid_5 floss"><%=@model::LABELS[:floss]%> </div>
-				<% i=0 %>
-				<% Floss.all.each do |floss| %>
-					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">	
-					<%= f.radio_button :floss_id, floss.id %>
-					<%= f.label :"floss_id_#{floss.id}", floss.name %><br/>
-				</div>
-				<% i+=1 %>
-				<% end %>		
-			</div>	
-			<br/>
-				<div class="grid_12 vgutter ">
-				<div class="grid_5 floss  "><%=@model::LABELS[:mouth_wash]%></div>
-				<% i=0 %>
-				<% MouthWash.all.each do |mouth_wash| %>
-				<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
-
-					<%= f.radio_button :mouth_wash_id, mouth_wash.id %>
-					<%= f.label :"mouth_wash_id_#{mouth_wash.id}", mouth_wash.name %>
-				</div>
-				<% i+=1 %>
-				<% end %>
-			</div>	
-			<br/>
-			<div class="grid_12 vgutter ">		
-					<div class="grid_5 floss  "><%=@model::LABELS[:toothpaste]%></div>
-					<% i=0 %>
-					<% Toothpaste.all.each do |toothpaste| %>
-					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">	
-						<%= f.radio_button :toothpaste_id, toothpaste.id %>
-						<%= f.label :"toothpaste_id_#{toothpaste.id}", toothpaste.name %>
-					</div>
-					<% i+=1 %>
-					<% end %>
-			</div>	
-			<br/>
-			<div class="grid_12 vgutter ">	
-					<div class="grid_5 floss"><%=@model::LABELS[:breath_mint]%></div>
-					<% i=0 %>
-					<% BreathMint.all.each do |breath_mint| %>
-					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
-						<%= f.radio_button :breath_mint_id, breath_mint.id %>
-						<%= f.label :"breath_mint_id_#{breath_mint.id}", breath_mint.name %>
-					</div>
-					<% i+=1 %>
-					<% end %>
-				
-			</div>	
-			<div class="grid_12 vgutter ">	
-					<div class="grid_5 floss"><%=@model::LABELS[:whitening_kit]%></div>
-					<% i=0 %>
-					<% WhiteningKit.all.each do |whitening_kit| %>
-					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
-						<%= f.radio_button :whitening_kit_id, whitening_kit.id %>
-						<%= f.label :"whitening_kit_id_#{whitening_kit.id}", whitening_kit.name %>
-					</div>
-					<% i+=1 %>
-					<% end %>
+	<div class="vgutter enclose">
+		<div class="grid_2">&nbsp;</div>
+		<div class="grid_4 center">
+		<% ToothpasteWord.all.shuffle.each do |toothpaste_word| %>
+			<div class="draggable tooth" id="<%= dom_id toothpaste_word %>" title="<%=toothpaste_word.name%>">
+				 <%= image_tag toothpaste_word.to_img, :alt=>toothpaste_word.name %>
+				<%toothpaste_word.name %>
 			</div>
-			<div class="grid_12 vgutter ">	
-					<div class="grid_5 floss "><%=@model::LABELS[:water_jet]%></div>
-					<% i=0 %>
-					<% WaterJet.all.each do |water_jet| %>
-					<div class="grid_2 <%= i%3==0 ? "alpha" : ("omega" if i%3==2) %> " style="text-align:center;">
-						<%= f.radio_button :water_jet_id, water_jet.id %>
-						<%= f.label :"water_jet_id_#{water_jet.id}", water_jet.name %>
-					</div>
-					<% i+=1 %>
-					<% end %>
-			</div>
-	
-			</div>		
+		<% end %>
 		</div>
-		
+		<div class="grid_6 prefix_3">
+ 			<div class="droppable luxury_words" id="droppable_1">
+				<p>1</p>
+			</div>
+		</div>
+		<div class="grid_6 prefix_3">
+			<div class="droppable luxury_words" id="droppable_2">
+				<p>2</p>
+			</div>
+		</div>
+		<div class="grid_6 prefix_3">
+			<div class="droppable luxury_words" id="droppable_3">
+				<p>3</p>
+			</div>
+		</div>
+	</div>
 	<%= render :partial=>'navigation' %>
-	<% end -%>
+<% end -%>
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+	function addToForm(event,ui){
+		var $curr = $(this).attr( 'id' ).replace( /droppable_/ , '' );
+		var $curr_name = ui.draggable.attr('title');
+		var substring_index = ui.draggable.attr('id').search(/\d+/);
+		var value = ui.draggable.attr('id').substring(substring_index);
+		$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="toothpaste_word_ids_'+ui.draggable.attr('id')+'" name="colgate[toothpaste_word_ids]['+$curr+']" value="'+value+'" />');
+			
+		ui.draggable.addClass("selected");
+		var dropped = $(this);
+		dropped.droppable( "option", "disabled", true );
+		ui.draggable.bind( "drag", function(event, ui) {
+			$(this).removeClass("selected");
+			dropped.droppable( "option", "disabled", false );
+			$('#toothpaste_word_ids_'+$(this).attr('id')).remove();
+		});
+	};
+	$('.draggable').draggable();
+	$(".droppable").droppable({
+		tolerance: 'touch',
+		drop: addToForm
+	});
+</script>
+<% end %>
+

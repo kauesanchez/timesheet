@@ -8,9 +8,9 @@ class ReportsController < ApplicationController
     
   def colgate
     graphs
-    @title =  'Colgate Survey Statistics'
-    @pie_graphs -= ["time_to_answer"]
-    @bar_graphs+=[ "colgate_rates"]
+    @title =  'Healthy Mouth Survey Statistics'
+    @pie_graphs -= ["time_to_answer","store","healthy_mouth","toothpaste_word_why","toothpaste_importance_other","oral_importance_why"]
+    @bar_graphs+=[ "floss_id","mouth_wash_id","toothpaste_id","breath_mint_id","whitening_kit_id", "water_jet_id"]
     respond_to do |format|
       format.html
       format.csv { export_csv(@model) }
@@ -61,10 +61,33 @@ class ReportsController < ApplicationController
     @model.reflections.each{|key,value| @bar_graphs << key.to_s if [:has_and_belongs_to_many, :has_many].include? value.macro}
   end
   
-  def export_csv(model)
-    filename = I18n.l(Time.now, :format => :short) + "-#{model.class_name}.csv"
-    content = model.to_csv([:time_to_answer])
-    content = BOM + Iconv.conv("utf-16le", "utf-8", content)
-    send_data content, :filename => filename
-  end
+    def export_csv
+      filename = I18n.l(Time.now, :format => :short) +  "-#{model.class_name}.csv"
+      content = FasterCSV.generate(:col_sep => "\t") do |csv|
+        fields =  [:id, :created_at]
+        fields += ColgateSurvey::QUESTION.delete_if(&:nil?).collect{|question| question[:fields]}.flatten
+        questions = fields.collect{ |field| (ColgateSurvey::ATTRIBUTE_QUESTION[field] || 0).to_s+': '+ColgateSurvey::question(field) }
+        csv << questions
+        ColgateSurvey.all.each do |survey|
+          data = fields.collect{ |field| survey.chosen(field) }
+          csv << data
+        end
+        csv
+      end
+      content = BOM + Iconv.conv("utf-16le", "utf-8", content)
+      send_data content, :filename => filename
+    end
+
+    def get_value(value)
+      case value
+      when 'false' then false
+      when 'true' then true
+      else value
+      end
+    end
+
+  
+  
 end
+
+

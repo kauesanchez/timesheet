@@ -63,6 +63,9 @@ class Survey < ActiveRecord::Base
     when "age_group_id" then "Age group"
     when "income_group_id" then "Income group"
     when "familiar_crossover" then "Crossover"   
+    when "last_appealing_id" then "Least Appealing"  
+      
+    
       
     else
       attribute.to_s.humanize
