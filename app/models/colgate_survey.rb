@@ -29,23 +29,6 @@ class ColgateSurvey < Survey
     EXTRA_GRAPHS = []
     
     LABELS={}
-<<<<<<< HEAD:app/models/colgate_survey.rb
-    LABELS[:floss]="Floss; strips, tapes, picks"
-    LABELS[:mouth_wash]="Mouthwash  / rinse / antiseptics"
-    LABELS[:toothpaste]="Toothpaste / tooth brush"
-    LABELS[:breath_mint]="Breath mints, gums, strips"
-    LABELS[:whitening_kit]="Whitening kits / rinses / toothpastes"
-    LABELS[:water_jet]="Water jet cleaners (irrigators)like a Waterpik"
-    LABELS[:floss_care]="Floss; strips, tapes, picks"
-    LABELS[:a_mouth_wash]="Mouthwash  / rinse / antiseptics"
-    LABELS[:a_toothpaste]="Toothpaste / tooth brush"
-    LABELS[:a_breath_mint]="Breath mints, gums, strips"
-    LABELS[:a_whitening_kit]="Whitening kits / rinses / toothpastes"
-    LABELS[:a_water_jet]="Water jet cleaners (irrigators)like a Waterpik"
-
-    type_validations
-=======
-     LABELS[:floss]="Floss; strips, tapes, picks"
      LABELS[:mouth_wash]="Mouthwash  / rinse / antiseptics"
      LABELS[:toothpaste]="Toothpaste / tooth brush"
      LABELS[:breath_mint]="Breath mints, gums, strips"
@@ -60,7 +43,6 @@ class ColgateSurvey < Survey
    
     
       type_validations
->>>>>>> b8808b01a9cf254f0be91b3b7e3817e17c83b2eb:app/models/colgate_survey.rb
     
     MALE = true
     FEMALE = false
