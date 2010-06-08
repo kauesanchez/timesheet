@@ -37,20 +37,18 @@
 		var value = ui.draggable.attr('id').substring(substring_index);
 		$("#<%= controller_name+'_form'%>").append('<input type="hidden" id="oral_care_word_ids_'+ui.draggable.attr('id')+'" name="colgate[oral_care_word_ids][]" value="'+value+'" />');
 		ui.draggable.addClass("selected");
-  var dropped = $(this);
-  dropped.droppable( "option", "disabled", true );
-  ui.draggable.bind( "drag", function(event, ui) {
-    $(this).removeClass("selected");
-    dropped.droppable( "option", "disabled", false );
-    $('#oral_care_word_ids_'+$(this).attr('id')).remove();
-  });
+		var dropped = $(this);
+		dropped.droppable( "option", "disabled", true );
+		ui.draggable.bind( "drag", function(event, ui) {
+			$(this).removeClass("selected");
+			dropped.droppable( "option", "disabled", false );
+			$('#oral_care_word_ids_'+$(this).attr('id')).remove();
+		});
 	};
-	
 	$('.draggable').draggable();
 	$(".droppable").droppable({
-			tolerance: 'touch',
-	    drop: addToForm
-	 });
- 
+		tolerance: 'touch',
+		drop: addToForm
+	});
 </script>
 <% end %>
