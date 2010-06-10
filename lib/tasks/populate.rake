@@ -86,52 +86,7 @@ namespace :populate do
       ].collect {|sampling| { :name => sampling } })
   end
   
-  desc "Destroy all records from vehicle_region and repopulate it"
-  task :packaging => :environment do
-    Packaging.destroy_all
-    Packaging.create([
-      "1", "2", "3"
-      ].collect {|packaging| { :name => packaging } })
-  end
-  
-  desc "Destroy all records from vehicle_region and repopulate it"
-  task :coupon => :environment do
-    Coupon.destroy_all
-    Coupon.create([
-      "1", "2", "3"
-      ].collect {|coupon| { :name => coupon } })
-  end
-  
-  desc "Destroy all records from vehicle_region and repopulate it"
-  task :new_usage => :environment do
-    NewUsage.destroy_all
-    NewUsage.create([
-      "1", "2", "3"
-      ].collect {|new_usage| { :name => new_usage } })
-  end
-  
-  desc "Destroy all records from vehicle_region and repopulate it"
-   task :new_oral => :environment do
-     NewOral.destroy_all
-     NewOral.create([
-       "1", "2", "3"
-       ].collect {|new_oral| { :name => new_oral } })
-   end
-   desc "Destroy all records from vehicle_region and repopulate it"
-    task :professional => :environment do
-      Professional.destroy_all
-      Professional.create([
-        "1", "2", "3"
-        ].collect {|professional| { :name => professional } })
-    end
-     desc "Destroy all records from vehicle_region and repopulate it"
-      task :other => :environment do
-        Other.destroy_all
-        Other.create([
-          "1", "2", "3"
-          ].collect {|other| { :name => other } })
-      end
-
+ 
   
   
   desc "Destroy all records from vehicle_region and repopulate it"

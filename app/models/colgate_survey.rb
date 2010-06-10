@@ -1,6 +1,6 @@
 class ColgateSurvey < Survey
     QUESTION = []
-    QUESTION[1] = {:title=>"What's your age?",:fields=>[:age_group_id,:gender,:income_group_id]} 
+    QUESTION[1] = {:title=>"What's your age?<br/>1.1. Pick your gender:<br/>1.2. Please tell us your income range:",:fields=>[:age_group_id,:gender,:income_group_id]} 
   # QUESTION[2] = {:title=>"Pick your gender:",:fields=>[:gender]}
     QUESTION[2] = {:title=>"Where are you right now? ",:fields=>[:state_id]}
  # QUESTION[4] = {:title=>"Please tell us your income range:",:fields=>[:income_group_id]}

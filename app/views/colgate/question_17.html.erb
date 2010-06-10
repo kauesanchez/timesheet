@@ -16,7 +16,7 @@
 			<div class="grid_15 vgutter enclose">
 				
 				<div class="grid_6 prefix_1 suffix_1"><%=StatementMostAppealing.all[0].name%></div>
-				<div class="grid_2  center  ">
+				<div class="grid_2  center ">
 					<%= f.radio_button :statement_most_appealing_id, StatementMostAppealing.all[0].id  %>
 					<%= f.label :"statement_most_appealing_id_#{StatementMostAppealing.all[0].id}", image_tag('yes.png', :alt=>'Most Appealing' ) %>
 				</div>
