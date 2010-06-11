@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.disclaimer 'disclaimer', :controller=>:public, :action=>:disclaimer
   map.forgot_password 'forgot_password', :controller=>:user, :action=>:forgot_password
   map.privacy 'privacy', :controller=>:public, :action=>:privacy
+  map.survey_question '', :controller=>:public, :action=>:survey_question
   map.login   'login', :controller=>:user, :action=>:login
   map.logout  'logout', :controller=>:user, :action=>:logout
   map.connect 'facebook_share/:attribute/:id', :controller=>:colgate, :action=>:facebook_share

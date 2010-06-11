@@ -17,11 +17,11 @@
 				<div class="grid_14"><span style="float:right">logged in as <%= session[:user].login %> <%= link_to "(logout)", logout_path %> | 
 				<%= session[:user].role == User::ADMIN ?
 						link_to("manage users", user_index_path) : link_to("edit info", edit_user_path(session[:user])) %> | 
-				<%= link_to "reports", reports_path %></span></div>
+				<%= link_to "reports", reports_path %></span></div>| 
+				<a href="survey.pdf">questions</a>				
 			<% end %>
 			<%= yield %>
 		</div>
-
 		<div class="footer">&nbsp;</div>
   	</div>
 	<%= yield :javascript %> 
