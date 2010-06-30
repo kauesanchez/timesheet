@@ -1,0 +1,24 @@
+<h1>Lista de Projetos</h1>
+
+		<div class="grid_16">
+			 <div class="grid_1 bold">Nome</div>
+			 <div class="grid_1 bold">Código</div>
+			 
+		</div>
+
+<% @projetos.each do |projeto| %>
+  <div>
+		  <div class="grid_4">
+			 <div class="grid_1"><%=h projeto.name %></div>
+			 <div class="grid_1"><%=h projeto.u_id %></div>
+		  </div>
+    <div class="grid_1"><%= link_to 'Show', projeto %></div>
+    <div class="grid_1"><%= link_to 'Edit', edit_projeto_path(projeto) %></div>
+  	<div class="grid_1"><%= link_to 'Destroy', projeto, :confirm => 'Are you sure?', :method => :delete %></div>
+  </div>
+<% end %>
+
+
+<%= link_to 'New projeto', new_projeto_path %>
+
+

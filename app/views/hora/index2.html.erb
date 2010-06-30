@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+		Horas</title>
+	
+	<%= stylesheet_link_tag 'grid', 'lincoln_luxury', 'stylish-select', 'jquery-ui-1.7.2.custom.css'  %>
+</head>
+<body>
+	<%= grid_on_off %>
+    <div id="" class="container_16 enclose">
+			<div>
+				<% unless session[:user].blank? %>
+					<div class="grid_16"><span style="float:right">logged in as <%= session[:user].login %> <%= link_to "(logout)", logout_path %> | 
+					<%= session[:user].role == User::ADMIN ?
+							link_to("manage users", user_index_path) : link_to("edit info", edit_user_path(session[:user])) %> | 
+				<% end %>
+			</div>
+		
+		<div class="enclose vgutter ">
+			<div class="grid_4 e1">Folha de Horas </div>
+			<div class="grid_4 e1">junho 2010</div>
+			<div class="grid_4 e1"><%= session[:user].name %></div>
+			<div class="grid_4">
+				<img src="images/nu.png" />
+			</div>
+			
+			<div class="grid_3 e1">
+			
+		</div>	
+			
+	</div>
+	
+	<div class="grid_16 e2">	
+		<div class="grid_3">segunda</div>
+		<div class="grid_3">terça</div>
+		<div class="grid_3 ">quarta</div>
+		<div class="grid_3">quinta</div>
+		<div class="grid_3">sexta</div>
+	</div>
+	
+	<div class="grid_16 e2">	
+		<div class="grid_3">&nbsp;</textarea></div>
+	<div class="dia">
+		<div class="grid_3">1<br/>
+			projeto
+			<select name="select">
+				<option value="0">select</option>
+				<option value="1">colgate</option>
+			</select>
+			<br />
+			entrada:
+			<input type="text" name="textfield">
+			saída  :
+			<input type="text" name="textfield">
+			
+			<textarea name="textarea" rows="2"></textarea>
+			
+			</div>
+		</div>	
+		<div class="grid_3">2<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">3<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">4<br/><textarea name="textarea" rows="6"></textarea></div>
+		
+	</div>	
+	<div class="grid_16 e2">	
+		<div class="grid_3">7<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">8<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">9<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">10<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">11<br/><textarea name="textarea" rows="6"></textarea></div>
+		
+	</div>
+	<div class="grid_16 e2">	
+		<div class="grid_3">14<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">15<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3 ">16<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">17<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">18<textarea name="textarea" rows="6"></textarea></div>
+		
+	</div>
+	<div class="grid_16 e2">	
+		<div class="grid_3">21<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">22<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3 ">23<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">24<br/><textarea name="textarea" rows="6"></textarea></div>
+		<div class="grid_3">25<br/><textarea name="textarea" rows="6"></textarea></div>
+		
+	</div>
+		<div class="grid_16 e2">	
+			<div class="grid_3">28<br/><textarea name="textarea" rows="6"></textarea></div>
+			<div class="grid_3">29<br/><textarea name="textarea" rows="6"></textarea></div>
+			<div class="grid_3 ">30<br/><textarea name="textarea" rows="6"></textarea></div>
+			<div class="grid_3">&nbsp;</textarea></div>
+			<div class="grid_3">&nbsp;</textarea></div>
+
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+		
+		
+				<%= javascript_include_tag :defaults,  'jquery.stylish-select.js'%>
+			
+		
+				<%= yield :javascript %>
+		
+</body>
+</html>

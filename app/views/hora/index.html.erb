@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+		Horas</title>
+	
+	<%= stylesheet_link_tag 'grid', 'lincoln_luxury', 'stylish-select', 'jquery-ui-1.7.2.custom.css'  %>
+</head>
+<body>
+	<%= grid_on_off %>
+    <div class="container_16 enclose">
+		<div class="grid_16 enclose">
+			<div>
+				<% unless session[:user].blank? %>
+					<div class="grid_16"><span style="float:right">Bem-vindo <%= session[:user].name %>. <%= link_to "(logout)", logout_path %> | 
+					<%= session[:user].role == User::ADMIN ?
+							link_to("manage users", user_index_path) : link_to("edit info", edit_user_path(session[:user])) %> | 
+				<% end %>
+			</div>
+		<div class="enclose vgutter ">
+			<h1 class="grid_4 e1">Folha de Horas </h1>
+			<div class="grid_4 e1">junho 2010</div>
+			<div class="grid_4 e1"><%= session[:user].name %></div>
+			<div class="grid_4 e2">
+				<img src="images/nu.png" />
+			</div>
+	</div>	
+		<div class="grid_12 prefix_3">
+				<div class="grid_12">	
+					<div class="grid_2 center e3">
+						 01
+					</div>
+					
+						<div class="grid_2">
+ 								
+					</div>
+					
+							
+							
+				</div>	
+				
+			
+				<div class="grid_10 ">
+					<% form_tag('teste/gravar', :method => :post) do %>
+					<% end %>
+					
+					<input type="submit" id="teste" value="Confirmar" />
+				</div>
+				
+			</div>	
+				<div class="grid_10 prefix_3 e2 ">
+					Visualizar registros <span class="indicator">+</span>
+					<div class="grid_10 none">
+						<div class="grid_2 " style= "text-align:left">
+						
+							<br />
+						</div>	
+					</div>
+				</div>
+	 	</div>
+</div>
+	   
+	
+	<div>
+		<%= calendar :today => 'HOJE' %>
+		</div>
+	
+	
+	
+				<%= javascript_include_tag :defaults,  'jquery.stylish-select.js'%>
+				<%= yield :javascript %>
+</body>
+</html>

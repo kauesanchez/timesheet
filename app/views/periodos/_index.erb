@@ -1,0 +1,22 @@
+
+
+<table>
+  <tr>
+	 <th>Entrada</th>
+	 <th>Saida</th>
+	 <th>Tarefa</th>
+  </tr>
+
+<% @periodos.each do |periodo| %>
+  <tr>
+	<td><%=h periodo.entrada %></td>
+	<td><%=h periodo.saida %></td>
+	<td><%=h periodo.tarefa %></td>
+    <td><%= link_to 'Show', periodo %></td>
+    <td><%= link_to 'Edit', edit_periodo_path(periodo) %></td>
+    <td><%= link_to 'Destroy', periodo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

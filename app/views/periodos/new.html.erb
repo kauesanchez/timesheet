@@ -1,0 +1,53 @@
+
+
+	<div class="grid_12 prefix_3">
+		<% form_for(@periodo) do |f| %>
+		  <%= f.error_messages %>
+		
+			<div class="grid_12">	
+				<div class="grid_2 center e3">
+					 01
+				</div>
+				<div class="grid_2">
+					<%= f.label :entrada %>
+				    <%= f.text_field :entrada %>				
+				</div>		
+				
+				<div class="grid_2">
+					<%= f.label :saida %>
+			    	<%= f.text_field :saida %>		
+				</div>
+				
+				<div class="grid_2">
+				<%= f.label :tarefa %>
+			    <%= f.text_field :tarefa %>		
+				</div>
+				
+			</div>
+			<div class="grid_10 ">
+				 <%= f.submit 'Create' %>
+			</div>		
+		</div>
+		<% end %>	
+			<div class="grid_10 prefix_3 e2 ">
+				Visualizar registros <span class="indicator">+</span>
+				<div class="grid_10 none">
+					<div class="grid_2 " style= "text-align:left">			
+						
+					
+						
+
+					</div>	
+				</div>
+			</div>
+ 		</div>
+	</div>
+
+
+
+
+
+
+
+
+

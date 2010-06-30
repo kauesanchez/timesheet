@@ -1,0 +1,75 @@
+<div class="grid_12 prefix_3">
+	<% form_for(@periodo) do |f| %>
+	  <%= f.error_messages %>
+		<div class="grid_12">	
+			<div class="grid_2 center e3">
+				 01
+			</div>
+			<div class="grid_2">
+				<%= f.label :entrada %>
+			    <%= f.text_field :entrada %>				
+			</div>
+			<div class="grid_2">
+				<%= f.label :saida %>
+		    	<%= f.text_field :saida %>		
+			</div>
+			<div class="grid_6">
+			<% f.label :tarefa %>
+		    <%= f.text_area :tarefa %>		
+			</div>
+			
+			
+			<%= f.submit 'Create', :class=>'grid_6'%>
+		</div>
+		
+	</div>
+	<% end %>	
+	
+	
+		<div class="grid_10 prefix_1  e2 ">
+			Visualizar registros <span class="indicator">+</span>
+			<div class="grid_10 none">
+				<div class="grid_10 prefix_3 " style= "text-align:left">			
+					<div class="grid_10">
+						 <div class="grid_1 bold">Entrada</div>
+						 <div class="grid_1 bold">Saida</div>
+						 <div class="grid_1 bold">Tarefa</div>
+					</div>	
+					<% @periodos.each do |periodo| %>
+					  <div class="grid_10">
+						 <div class="grid_1"><%=h periodo.entrada %></div>
+						 <div class="grid_1"><%=h periodo.saida %></div>
+						 <div class="grid_1"><%=h periodo.tarefa %></div>
+					   
+					     <div class="grid_1"><%= link_to 'Editar', edit_periodo_path(periodo) %></div>
+					     <div class="grid_1"><%= link_to 'Excluir', periodo, :confirm => 'Você tem certeza que deseja excluir esse período ?', :method => :delete %></div>
+					  </div>
+					<% end %>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+
+	 <div>
+			<script type="text/javascript">
+				$(function() {
+					$("#datepicker").datepicker();
+				});
+				</script>
+
+
+
+			<div class="demo">
+
+			<p>Date: <input type="text" id="datepicker"></p>
+
+			</div><!-- End demo -->
+
+			<div class="demo-description" style="display: none; ">
+
+			<p>The datepicker is tied to a standard form input field.  Focus on the input (click, or use the tab key) to open an interactive calendar in a small overlay.  Choose a date, click elsewhere on the page (blur the input), or hit the Esc key to close. If a date is chosen, feedback is shown as the input's value.</p>
+
+			</div><!-- End demo-description -->
+	</div>
+

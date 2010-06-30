@@ -1,0 +1,3 @@
+class HoraController < ApplicationController
+
+end
