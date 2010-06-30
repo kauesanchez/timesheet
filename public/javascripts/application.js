@@ -71,3 +71,13 @@ $( '.multiple_markable_item, .multiple_marked_item' ).click( function(){
 	$( this ).toggleClass( 'multiple_marked_item' );
 	$( this ).toggleClass( 'multiple_markable_item' );
 });
+
+
+// metodo par amostrar os "latest activity"
+$( '.indicator' ).click( function() {
+	$( this ).parent().find( '.none' ).toggle();
+	if ( $( this ).parent().find( '.none' ).css( 'display' ) == 'none' )
+		$( this ).html( '+' );
+	else
+		$( this ).html( '-' );
+});

@@ -5,7 +5,7 @@
 
 body {
 	font-family: helvetica, arial, verdana, sans-serif;
-	color: #FF0000;
+	color: #FFFFFF;
 }
 
 h1 {
@@ -38,6 +38,13 @@ body { font-size: 13px; height: 100%; background: url('/images/bg_gradient.png')
 	margin-top: 3px;
 	margin-bottom: 4px;
 	border-top:1px solid;
+}
+
+.e1 {
+	margin-top: 20px;
+}
+.e2 {
+	margin-bottom:30px;
 }
 
 .write {
@@ -128,6 +135,8 @@ img.draggable {
 	color: #777;
 }
 
+
+
 /* deveria do tamanho do grid_8, mas por causa do jquery precisa adicionar padding precisa
  ter um tamanho um pouco menor */
 #progressbar.grid_8 { width: 462px; float: left; }
@@ -140,3 +149,100 @@ img.draggable {
 .error_messages { color: darkred; }
 .error_messages ul { margin: 2px 16px; }
 
+.e2{
+	text-align:right;
+}
+
+.e3{
+	font-size: 64px;
+	margin: 3px 0;
+	font-weight: bold;
+	border:2px solid #fff ;
+}
+
+
+.e4{
+	margin-top:10px;
+}
+
+.entrada{
+	width:100px; height:14px;
+}
+
+.e5{
+	margin-left:0px;
+}
+
+
+.dia{
+	border:1px;
+}
+.textarea{
+	width:464px;height:50px;
+}	
+.bold{
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+}
+	
+
+
+#teste{ 
+	margin-top:4px;width:580px;border:0px; padding: 2px 4px;
+	}
+	
+.flash{
+	color: darkred;	text-align:center;	margin-bottom:16px
+}	
+
+
+/*** FORMULARIOS ***/
+input[type="text"],input[type="password"],  select {width:100%;border:0px}
+input[type="text"],input[type="submit"],input[type="password"]
+input[type="submit"] {margin-top:4px;width:50px;border:0px }
+textarea {width:342px;height:40px; margin-top:4px;}
+
+
+/*** Calendar ***/
+#calendar {
+  border-collapse: collapse;
+  width: 100%;
+}
+ 
+#calendar td,
+#calendar th {
+  color: #ccc;
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 10px;
+  padding: 6px;
+}
+ 
+#calendar th {
+  border: 1px solid #ccc;
+  background: #ccc;
+  color: #666;
+  text-align: left;
+}
+ 
+#calendar td {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+}
+ 
+#calendar span {
+  display: block;
+}
+ 
+#calendar td.events {
+  background: #fff;
+}
+ 
+#calendar td.today {
+  background: #666;
+  color: #fff;
+}
+ 
+#calendar caption {
+  display: none;
+}

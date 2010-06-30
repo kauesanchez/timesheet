@@ -1,9 +1,0 @@
-<div class="grid_16 center">
-	<%= link_to "Privacy", privacy_path, :target=>"_blank" %> -
-	<%= mail_to 'legal@disperseinteractive.com', 'Contact us', :encode=>"javascript" %> -
-	<%= link_to "Disclaimer", disclaimer_path, :target=>"_blank" %>
-</div>
-<div class="grid_16">&nbsp;</div>
-<div class="grid_16 center">
-	<small>better viewed with firefox, chrome or internet explorer 7+.</small>
-</div>

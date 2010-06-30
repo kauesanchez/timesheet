@@ -30,7 +30,7 @@ ul {
 
 body {
 	font-family: helvetica, arial, verdana, sans-serif;
-	color: #000;
+	color: #000;body  height: 100%; background: url('/images/bg_gradient.png') #FFF repeat-x; 
 }
 
 h1 {
@@ -124,3 +124,17 @@ img.draggable {
 
 .error_messages { color: darkred; }
 .error_messages ul { margin: 2px 16px; }
+
+
+.e3{ 
+margin-top: 25px;	
+}
+
+.e4{ 
+margin-bottom: 10px;	
+}
+.e5{
+border: 4px solid #333
+}
+
+input[type="submit"] {margin-top:25px;width:160px; padding: 3px 6px; background:#333;color:#fff;-webkit-border-radius:0	px;-moz-border-radius:0px;}

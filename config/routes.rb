@@ -1,16 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
-  map.root :controller => "colgate", :action=>'questions', :id=>1
+  map.resources :projetos
 
-  map.reports 'reports/:action.:format', :controller=>:reports
-  map.disclaimer 'disclaimer', :controller=>:public, :action=>:disclaimer
+  map.resources :periodos
+
+  map.root :controller => "user"
+  
   map.forgot_password 'forgot_password', :controller=>:user, :action=>:forgot_password
-  map.privacy 'privacy', :controller=>:public, :action=>:privacy
-  map.survey_question '', :controller=>:public, :action=>:survey_question
   map.login   'login', :controller=>:user, :action=>:login
   map.logout  'logout', :controller=>:user, :action=>:logout
-  map.connect 'facebook_share/:attribute/:id', :controller=>:colgate, :action=>:facebook_share
-  map.connect 'survey/:action/:id', :controller=>:colgate
-  map.connect 'survey/:action/:id.:format', :controller=>:colgate
+  map.bases 'bases/:action.:format', :controller=>:bases
+  
 
   
   map.resources :user, :except=>[:show]

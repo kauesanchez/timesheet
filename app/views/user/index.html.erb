@@ -1,17 +1,19 @@
 <h1 class="grid_16">Users list:</h1>
 
-<div class="grid_3 prefix_2"><strong>Login</strong></div>
+<div class="grid_3 "><strong>Login</strong></div>
 <div class="grid_2"><strong>role</strong></div>
-<div class="grid_4 suffix_5"><strong>E-mail</strong></div>
+<div class="grid_3"><strong>Name</strong></div>
+<div class="grid_4 "><strong>E-mail</strong></div>
 <% @users.each_with_index do |user,i| %>
 	<div class="grid_2">&nbsp;</div>
-	<div class="grid_12 table <%= "alternate" if i%2==1  %>">
+	<div class="grid_16 table <%= "alternate" if i%2==1  %>">
 		<div class="grid_3 alpha"><%= user.login %></div>
 		<div class="grid_2"><%= user.role == User::ADMIN ? "Admin" : "User" %></div>
+		<div class="grid_3"><%= user.name %></div>
 		<div class="grid_7 omega"><%= user.email %><span style="float:right"><%= link_to "Edit", edit_user_path(user) %> |
 		<%= link_to "Delete", user, :method=>:delete, :confirm=>"Do you really wish to delete '#{user.login}'" %></div>
 	</div>
 	<div class="grid_2">&nbsp;</div>
 <% end %>
 <div class="grid_16">&nbsp;</div>
-<div class="grid_14 prefix_2"><%= link_to "Add a new user", new_user_url %></div>
+<div class="grid_12 "><%= link_to "Add a new user", new_user_url %></div>

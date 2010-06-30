@@ -23,16 +23,5 @@ module ApplicationHelper
       "#{minutes}:#{seconds}"
   end
   
-  def marked?(attribute, value)
-    instance_variable_get("@#{controller_name}").send(attribute)==value ? 'marked_item' : 'markable_item'
-  end
-  
-  def m_marked?(attribute, value)
-    instance_variable_get("@#{controller_name}").send(attribute).include?(value) ? 'multiple_marked_item' : 'multiple_markable_item'
-  end
 
-  
-  def title
-      @model::QUESTION[@question_number][:title]
-  end
 end

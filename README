@@ -168,7 +168,7 @@ You can interact with the domain model by starting the console through <tt>scrip
 Here you'll have all parts of the application configured, just like it is when the
 application is running. You can inspect domain models, change values, and save to the
 database. Starting the script without arguments will launch it in the development environment.
-Passing an argument will specify a different environment, like <tt>script/console production</tt>.
+Passing an argument will specify a different environment, like <tt>script/console periodoion</tt>.
 
 To reload your controllers and models after launching the console run <tt>reload!</tt>
 
@@ -177,7 +177,7 @@ To reload your controllers and models after launching the console run <tt>reload
 You can go to the command line of your database directly through <tt>script/dbconsole</tt>.
 You would be connected to the database with the credentials defined in database.yml.
 Starting the script without arguments will connect you to the development database. Passing an
-argument will connect you to a different database, like <tt>script/dbconsole production</tt>.
+argument will connect you to a different database, like <tt>script/dbconsole periodoion</tt>.
 Currently works for mysql, postgresql and sqlite.
 
 == Description of Contents
