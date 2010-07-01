@@ -1,8 +1,11 @@
 class PeriodosController < ApplicationController
 
+
   def index
     @periodos = Periodo.all
     @periodo = Periodo.new
+
+  
   end
   def show
     @periodo = Periodo.find(params[:id])

@@ -1,0 +1,44 @@
+<h1>Projetos</h1>
+
+<% form_for(@projeto) do |f| %>
+  <%= f.error_messages %>
+
+		<div class="grid_12">	
+			<div class="grid_2">
+				<%= f.label :name %>
+			    <%= f.text_field :name %>				
+			</div>		
+			
+			<div class="grid_2">
+				<%= f.label :codigo %>
+		    	<%= f.text_field :u_id %>		
+			</div>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', projetos_path %>
+
+<div class="grid_12">
+	Visualizar projetos <span class="indicator">+</span>
+	<div class="grid_12 none">
+		<div class="grid_12 " style= "text-align:left">			
+			<div class="grid_12">
+					 <div class="grid_1 bold">Nome</div>
+					 <div class="grid_1 bold">Código</div>
+			</div>	
+			<% @projetos.each do |projeto| %>
+			  <div class="grid_12">
+			  	<div class="grid_1"><%=h projeto.name %></div>
+			   	<div class="grid_1"><%=h projeto.u_id %></div>
+			    <div class="grid_1"><%= link_to 'Editar', edit_projeto_path(projeto) %></div>
+			  	<div class="grid_1"><%= link_to 'Excluir', projeto, :confirm => 'Tem certeza?', :method => :delete %></div>
+			  </div>
+			<% end %>
+		</div>	
+	</div>
+
+
+	
+
