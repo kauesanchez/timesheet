@@ -1,14 +1,14 @@
-<h1>Editing projeto</h1>
+<h1>Editar projeto</h1>
 
 <% form_for(@projeto) do |f| %>
   <%= f.error_messages %>
 
 <div class="grid_2">
-    <%= f.label :name %>
+    <%= f.label :nome %>
     <%= f.text_field :name %>
   </div>
   <div class="grid_2">
-    <%= f.label :u_id %>
+    <%= f.label :Código %>
     <%= f.text_field :u_id %>
   </div>
 
@@ -17,5 +17,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @projeto %> |
+
 <%= link_to 'Back', projetos_path %>

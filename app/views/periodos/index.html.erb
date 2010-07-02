@@ -39,7 +39,7 @@
 					  <div class="grid_10">
 						 <div class="grid_1"><%=h periodo.entrada %></div>
 						 <div class="grid_1"><%=h periodo.saida %></div>
-						 <div class="grid_1"><%=h periodo.tarefa %></div>
+						 <div class="grid_2"><%=h periodo.tarefa %></div>
 					   
 					     <div class="grid_1"><%= link_to 'Editar', edit_periodo_path(periodo) %></div>
 					     <div class="grid_1"><%= link_to 'Excluir', periodo, :confirm => 'Você tem certeza que deseja excluir esse período ?', :method => :delete %></div>
@@ -50,7 +50,6 @@
 		</div>
 	</div>
 </div>
-
 
 
 
